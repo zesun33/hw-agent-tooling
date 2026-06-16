@@ -1,0 +1,31 @@
+# Lychee link-checker configuration for the portfolio repo.
+
+verbose = "info"
+format = "detailed"
+no_progress = true
+
+max_retries = 2
+retry_wait_time = 2
+timeout = 20
+max_concurrency = 8
+
+method = "get"
+accept = ["200", "203", "206", "301", "302", "303", "304", "307", "308", "400", "401", "403", "404", "429"]
+require_https = false
+exclude_loopback = true
+exclude_private = true
+exclude_link_local = true
+
+exclude = [
+  '^https://github\.com/zesun33/(astromorph|trilinearcim)$',
+  '^https://scholar\.google\.com/.*',
+  '^https://www\.linkedin\.com/.*',
+]
+
+exclude_path = [
+  'node_modules/',
+  '\.git/',
+  '\.venv/',
+  'dist/',
+  'build/',
+]

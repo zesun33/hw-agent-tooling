@@ -1,0 +1,3 @@
+node_modules/** linguist-vendored=false
+.github/** linguist-documentation
+assets/** linguist-documentation=false
