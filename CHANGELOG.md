@@ -16,6 +16,8 @@ All notable changes to this repo are documented here. The format follows [Keep a
 
 ### Fixed
 
+- Excluded two flaky academic publication URLs from `lychee` so `make verify` is deterministic locally and in CI.
+
 ### Security
 
 ## [0.1.0] — 2026-06-16

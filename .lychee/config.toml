@@ -20,6 +20,8 @@ exclude = [
   '^https://github\.com/zesun33/(astromorph|trilinearcim)$',
   '^https://scholar\.google\.com/.*',
   '^https://www\.linkedin\.com/.*',
+  '^https://doi\.org/10\.1109/ICONS69015\.2025\.00043$',
+  '^https://ieeexplore\.ieee\.org/document/10976578/?$',
 ]
 
 exclude_path = [
