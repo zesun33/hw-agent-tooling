@@ -9,6 +9,9 @@ All notable changes to this repo are documented here. The format follows [Keep a
 - Initial landing-page README with portfolio identity, status tables, skill matrix, and verification matrix.
 - `LANDSCAPE.md` — comprehensive competitive analysis of 100+ tools across 14 domains (RTL, FPGA, SPICE, TCAD, neuromorphic, analog AI, architecture simulation, device physics, emerging devices, PCB, quantum).
 - Expanded `ROADMAP.md` with Phases 6–10 covering neuromorphic SNN MCPs, analog AI MCPs, device physics MCPs, architecture simulation MCPs, and SPICE/TCAD MCPs.
+- Honest feasibility filter in LANDSCAPE.md: only 5 MCP repos survive the build list (snntorch, aihwkit, cocotb, yosys, fefet); 14 others dropped with documented reasons.
+- Non-MCP opportunities section in LANDSCAPE.md: DevOps infrastructure for hardware ★★★ (`eda-devcontainer`, `gh-actions-for-hw`, `hw-agent-scaffold`, `eda-docker-images`), interactive/visualization tools, agent ecosystem tools, evaluation benchmarks, tutorial/knowledge repos.
+- Expanded `ROADMAP.md` with Phases 11–15 covering DevOps/infrastructure, interactive/visualization, agent ecosystem, evaluation/benchmarks, and tutorial/knowledge repos.
 
 ### Changed
 

@@ -280,21 +280,91 @@ No MCP server exists for cocotb (the standard Python-based verification framewor
 
 ---
 
-## Summary — Our highest-ROI opportunities
+## Summary — Honest build list (5 repos, not 19)
 
-Ranked by **greenfield × audience size × your unique advantage:**
+Not everything catalogued above is worth building. Many are redundant, serve tiny audiences, or require proprietary tool access. Here is the trimmed list after filtering for **feasibility × helpfulness × your unique advantage:**
 
-| # | Repo | Category | Greenfield? | Audience | Your advantage |
+| # | Repo | Category | Difficulty | Why build | Drop? |
 |---|---|---|---|---|---|
-| 1 | `mcp-cocotb` | Verification | ✅ No MCP exists | Every verification engineer using Python | Niche awareness |
-| 2 | `mcp-yosys` | Synthesis | ✅ One stale competitor | Every RTL designer using open tools | EDA expertise |
-| 3 | `mcp-gem5` | Architecture | ✅ Nothing exists | Every computer architecture researcher | Architecture background |
-| 4 | `mcp-snntorch` | Neuromorphic | ✅ No MCP exists | Every SNN researcher (1,992 ⭐) | **Your PhD domain** |
-| 5 | `mcp-aihwkit` | Analog AI | ✅ No MCP exists | Every CIM/analog AI researcher (483 ⭐) | **Your TrilinearCIM paper** |
-| 6 | `fefet-mcp` | Device Physics | ✅ Nothing exists | FeFET/NVM device researchers | **You co-authored FeFET papers** |
-| 7 | `mcp-neurosim` | Neuromorphic | ✅ No MCP exists | Neuromorphic architecture designers | Research adjacent |
-| 8 | `ubermag-mcp` | Spintronics | ✅ No MCP exists | Spintronics/micromagnetics community | Device physics knowledge |
-| 9 | `mcp-lava` | Neuromorphic HW | ✅ No MCP exists | Loihi 2 developers (732 ⭐) | SNN + HW background |
+| 1 | `mcp-snntorch` | Neuromorphic | Easy — pure PyTorch | Largest SNN community (1,992 ⭐), your PhD domain | — |
+| 2 | `mcp-aihwkit` | Analog AI | Easy — pip-installable | IBM-backed (483 ⭐), your CIM research | — |
+| 3 | `mcp-cocotb` | Verification | Medium | Real gap, every verification engineer , zero competition | — |
+| 4 | `mcp-yosys` | Synthesis | Medium | Real gap, only stale competitor | — |
+| 5 | `fefet-mcp` | Device physics | Hard — MATLAB/Verilog-A | Nobody else can build this, you co-authored the papers | — |
+| — | `mcp-spikingjelly` | Neuromorphic | Easy | Redundant with snnTorch (same community, same stack) | Drop |
+| — | `mcp-norse` | Neuromorphic | Easy | Redundant, smallest SNN community | Drop |
+| — | `mcp-bindsnet` | Neuromorphic | Easy | Library itself is unmaintained | Drop |
+| — | `mcp-neurosim` | Neuromorphic | Hard | C++/MATLAB, no Python API, academic-only tool | Drop |
+| — | `mcp-lava` | Neuromorphic HW | Medium | Tied to Loihi 2 hardware — most people don't have one | Drop to optional |
+| — | `mcp-nengo` | Neuromorphic | Medium | Rich API but niche neuroscience audience | Drop to optional |
+| — | `mcp-nest` | Neuroscience | Medium | Viable but niche, competing priorities | Drop to optional |
+| — | `mcp-neuron` | Neuroscience | Hard | HOC dual-interface complexity — huge scope for small audience | Drop |
+| — | `ubermag-mcp` | Spintronics | Medium | Tiny spintronics community (45 ⭐) | Drop to optional |
+| — | `badcrossbar-mcp` | Memristor | Easy | 31 stars — almost nobody uses the tool itself | Drop |
+| — | `mcp-gem5` | Architecture | **Hard** — GEM5 configs are 1000s of lines, enormous SimObject complexity | Sounds great, but building a useful GEM5 MCP is a PhD-level project in itself | Keep aspirational |
+| — | `mcp-hspice` | SPICE | Hard | Requires HSPICE license access — cannot test in CI | Drop |
+| — | `tcad-mcp` | TCAD | Hard | Proprietary, no Python API, requires Sentaurus/Silvaco license | Drop |
+| — | `mcp-sst` | Architecture | Hard | Nobody uses SST | Drop |
+
+---
+
+## Beyond MCP — Non-MCP Opportunities
+
+The portfolio is not limited to MCP servers. These are ecosystem-level projects that complement the MCP family. **Projects marked ★★★ are the user's preferred direction.**
+
+### DevOps / Infrastructure for Hardware ★★★
+
+Zero setup, one command to a working hardware development environment. This category currently has **nothing** — no standard Dev Container for EDA, no reusable GitHub Actions for hardware CI.
+
+| Project | What it does | Why it matters | Difficulty |
+|---|---|---|---|
+| **`eda-devcontainer`** | Pre-built VS Code Dev Containers with every open-source EDA tool: Verilog suite (iverilog + Verilator + cocotb + yosys + OpenROAD + GTKWave), SPICE suite (ngspice + PySpice + schemdraw), FPGA suite (yosys + nextpnr). One `git clone`, one `code .`, everything works on Linux, macOS, Windows via Docker. | Hours of manual setup saved per user. Every hardware engineer would use this. Your name on their VS Code. | Medium |
+| **`gh-actions-for-hw`** | Reusable GitHub Actions for hardware CI: `verilog-lint`, `verilog-simulate`, `yosys-synthesize`, `openroad-pnr`, `cocotb-test`, `spice-simulate`. Like `actions/setup-python` but for hardware workflows. | No standard hardware CI actions exist. You'd own the category. Every open-source hardware project would use these. | Medium |
+| **`hw-agent-scaffold`** | `npx create-hw-agent` — scaffolds a complete AI-powered hardware project. Generates Claude Code / OpenCode / Codex config, wired MCP servers, agent skills, Makefile, and a starter RTL design. Like `create-react-app` for AI + hardware. | Solves the "how do I even start?" problem. Turns your entire portfolio into a one-command onboarding experience. | Easy |
+| **`eda-docker-images`** | Pre-built Docker images on Docker Hub: `zesun33/verilog:latest`, `zesun33/spice:latest`, `zesun33/fpga:latest`. Used by `eda-devcontainer`, `gh-actions-for-hw`, and all your MCP servers. | Shared foundation layer for everything else in the portfolio. Build once, use everywhere. | Easy |
+
+### Interactive / Visualization
+
+| Project | What it does | Why it matters | Difficulty |
+|---|---|---|---|
+| **`device-lab`** | Interactive Jupyter-based device physics explorer. Pick FeFET / FinFET / memristor → tweak parameters with sliders → see I-V curves, hysteresis loops, variability plots in real time. | Shows hardware depth with software taste. Like CircuitJS but for semiconductor devices. | Medium |
+| **`kernel-rosetta`** | Side-by-side implementation of the same operation (matmul, softmax, attention) in Python → NumPy → PyTorch → Triton → CUDA → cuBLAS. One CLI command, 6 implementations, one benchmark with roofline overlay. | Educational and beautiful. Combines all your CUDA/Triton work into one showcase. | Medium |
+| **`cim-roofline`** | Specialized roofline model for CIM architectures. Shows analog precision cliffs, ADC energy walls, crossbar utilization — not just memory/compute like traditional roofline models. | From your TrilinearCIM research. Unique visualization nobody else has built. | Medium |
+
+### Agent Ecosystem (Not MCP)
+
+| Project | What it does | Why it matters | Difficulty |
+|---|---|---|---|
+| **`opencode-hw-subagents`** | Specialized OpenCode subagents for hardware: `rtl-reviewer`, `synthesis-expert`, `verification-engineer`, `kernel-optimizer`. Each has domain-specific system prompts, tool access configs, and tested example transcripts. | OpenCode subagents are a new capability. You'd be first in hardware. | Easy |
+| **`claude-code-hw-plugins`** | Ready-to-use Claude Code slash commands for hardware workflows: `/review-rtl`, `/synthesize`, `/simulate`, `/benchmark-kernel`, `/estimate-energy`. Bundled with MCP server configs. | Claude Code is the most popular AI coding agent. No hardware-specific plugins exist. | Easy |
+
+### Evaluation / Benchmarks
+
+| Project | What it does | Why it matters | Difficulty |
+|---|---|---|---|
+| **`llm-eval-for-hw`** | Benchmark evaluating LLMs on hardware design tasks: "Write a Verilog counter," "Optimize this convolution kernel," "Debug this timing violation," "Suggest a dataflow for this attention layer." Like HumanEval but for hardware engineering. | Instantly publishable. No one has done this. Pairs with your MCP servers as the "how well do agents actually perform" companion benchmark. | Medium |
+| **`cim-accuracy-bench`** | Standard benchmark measuring how analog non-idealities (device variation, ADC noise, IR drop) degrade neural network accuracy. Compare ideal digital baseline vs analog CIM at different precision levels. | From your TrilinearCIM paper. If you build the benchmark, everyone else references it. | Medium |
+
+### Tutorial / Knowledge Repos
+
+| Project | What it does | Why it matters | Difficulty |
+|---|---|---|---|
+| **`build-a-cim-accelerator`** | Step-by-step tutorial: design a CIM array → model FeFET devices → map a neural network layer → simulate energy and accuracy. All in Jupyter notebooks with pre-built Docker environment. | Combines everything in your PhD into one self-contained teaching repo. The "Andrej Karpathy nanoGPT" of compute-in-memory. | Medium |
+| **`neuromorphic-from-scratch`** | Implement LIF neurons, STDP learning, and a simple SNN — from scratch in pure NumPy. Then port to snnTorch. Then deploy to Loihi via Lava. Progressive difficulty, fully reproducible. | The highest-signal single page for your neuromorphic expertise. Shows you can teach as well as research. | Medium |
+
+---
+
+## Summary — High-priority non-MCP picks
+
+| # | Project | Category | Why it wins |
+|---|---|---|---|
+| ★★★ | **`eda-devcontainer`** | DevOps | Zero-setup hardware dev environment. Everyone benefits. |
+| ★★★ | **`gh-actions-for-hw`** | DevOps | No standard hardware CI exists. You own the category. |
+| ★★★ | **`hw-agent-scaffold`** | Agent ecosystem | One command → full AI + hardware project |
+| ★★ | **`llm-eval-for-hw`** | Benchmark | Publishable as a paper. Evaluates everything you build. |
+| ★★ | **`kernel-rosetta`** | Visualization | Beautiful portfolio centerpiece. One file, 6 implementations. |
+| ★ | **`device-lab`** | Interactive | Unique, visual, shows HW depth + software taste. |
+| ★ | **`cim-roofline`** | Visualization | From your research, nobody else can build. |
 
 ---
 

@@ -125,6 +125,58 @@ SPICE has active MCPs (spicebridge, ltspice-mcp) but gaps for proprietary tools.
 
 Exit condition: a circuit designer can ask "run transient analysis on this netlist at 1 GHz" and get waveform data back — using ngspice by default, with HSPICE/Spectre as optional engines.
 
+---
+
+## Phase 11 — DevOps / Infrastructure for Hardware ★★★
+
+Zero-setup, one command to a working hardware development environment. No reusable EDA infrastructure exists on Docker Hub or GitHub Actions today.
+
+- [ ] `eda-devcontainer` — VS Code Dev Containers with every open-source EDA tool pre-installed (Verilog suite, SPICE suite, FPGA suite). `git clone` → `code .` → everything works.
+- [ ] `gh-actions-for-hw` — Reusable GitHub Actions: `verilog-lint`, `verilog-simulate`, `yosys-synthesize`, `openroad-pnr`, `cocotb-test`, `spice-simulate`. Like `actions/setup-python` for hardware.
+- [ ] `hw-agent-scaffold` — `npx create-hw-agent` generates a complete AI-powered hardware project with MCP servers, skills, Makefile, and starter RTL.
+- [ ] `eda-docker-images` — Pre-built Docker images on Docker Hub: `zesun33/verilog`, `zesun33/spice`, `zesun33/fpga`. Shared foundation for all other tools.
+
+Exit condition: a hardware engineer can open a fresh laptop, run one command, and have a working Verilog development environment with AI agent integration.
+
+## Phase 12 — Interactive / Visualization
+
+Human-facing tools for exploring hardware concepts visually.
+
+- [ ] `kernel-rosetta` — Side-by-side implementations: Python → NumPy → PyTorch → Triton → CUDA → cuBLAS for matmul, softmax, attention. One CLI, six backends, one benchmark with roofline overlay.
+- [ ] `device-lab` — Interactive Jupyter device physics explorer. FeFET/FinFET/memristor parameter sweeps with real-time I-V curve plotting.
+- [ ] `cim-roofline` — Specialized roofline for CIM architectures: analog precision cliffs, ADC energy walls, crossbar utilization.
+
+Exit condition: a curious engineer can visually understand device physics or kernel performance without installing any EDA tools.
+
+## Phase 13 — Agent Ecosystem (Not MCP)
+
+Tools that wire your agent-facing products together into a coherent user experience.
+
+- [ ] `opencode-hw-subagents` — Specialized OpenCode subagents: `rtl-reviewer`, `synthesis-expert`, `verification-engineer`, `kernel-optimizer`. Domain-specific prompts, tool configs, tested transcripts.
+- [ ] `claude-code-hw-plugins` — Claude Code slash commands: `/review-rtl`, `/synthesize`, `/simulate`, `/benchmark-kernel`, `/estimate-energy`.
+
+Exit condition: a hardware engineer can install one plugin and immediately get domain-specialized agent behavior.
+
+## Phase 14 — Evaluation / Benchmarks
+
+Standardized evaluation for hardware AI agents.
+
+- [ ] `llm-eval-for-hw` — Benchmark evaluating LLMs on hardware design tasks: Verilog generation, kernel optimization, timing debugging, dataflow analysis. Like HumanEval but for hardware engineering.
+- [ ] `cim-accuracy-bench` — Standard benchmark measuring how analog non-idealities degrade neural network accuracy at different precision levels.
+
+Exit condition: any new hardware LLM can be fairly compared to existing ones on standard tasks.
+
+## Phase 15 — Tutorial / Knowledge Repos
+
+Self-contained educational repos that demonstrate your research in an accessible way.
+
+- [ ] `build-a-cim-accelerator` — Step-by-step: design CIM array → model FeFET devices → map neural network → simulate energy/accuracy. Jupyter notebooks + pre-built Docker environment.
+- [ ] `neuromorphic-from-scratch` — LIF neurons → STDP → SNN in NumPy → port to snnTorch → deploy to Loihi via Lava. Progressive difficulty, fully reproducible.
+
+Exit condition: a graduate student can work through the tutorial and understand CIM or neuromorphic computing from first principles.
+
+---
+
 ## Out of scope (this portfolio)
 
 - A general-purpose HW agent framework.

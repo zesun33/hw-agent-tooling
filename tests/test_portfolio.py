@@ -117,7 +117,8 @@ class RoadmapStructure(unittest.TestCase):
         for phase in (
             "Phase 0", "Phase 1", "Phase 2", "Phase 3", "Phase 4",
             "Phase 5", "Phase 6", "Phase 7", "Phase 8", "Phase 9",
-            "Phase 10",
+            "Phase 10", "Phase 11", "Phase 12", "Phase 13", "Phase 14",
+            "Phase 15",
         ):
             self.assertIn(phase, self.roadmap, f"missing {phase}")
 
