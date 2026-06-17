@@ -2,6 +2,8 @@
 
 This is the cross-repo roadmap for the AI Agent Tooling for Hardware + ML Systems portfolio. Each phase has a clear exit condition. Status moves `📋 Planned` → `🚧 Building` → `✅ Shipped` and is mirrored in the root [`README.md`](./README.md) status table.
 
+See [LANDSCAPE.md](./LANDSCAPE.md) for the full competitive analysis backing every entry in this roadmap.
+
 ## Phase 0 — Standards and assets
 
 - [x] Strict engineering standard defined.
@@ -65,6 +67,63 @@ Exit condition: a single agent run goes from an RTL file to a structured report 
 
 - [ ] `astromorph` — RMAAT-style memory compression (deferred until needed).
 - [ ] `trilinearcim` — DG-FeFET CIM simulator (deferred until needed).
+
+## Phase 6 — Neuromorphic / SNN MCPs
+
+Greenfield: 15+ mature Python tools, zero MCP servers. Directly tied to your PhD research.
+
+- [ ] `mcp-snntorch` — MCP for snnTorch (1,992 ⭐). SNN construction, training, and surrogate gradient tuning.
+- [ ] `mcp-spikingjelly` — MCP for SpikingJelly (2,044 ⭐). ANN-to-SNN conversion, encoder selection, training.
+- [ ] `mcp-lava` — MCP for Intel Lava (732 ⭐). SNN deployment to Loihi 2 hardware.
+- [ ] `mcp-nengo` — MCP for Nengo (931 ⭐). Neural engineering framework + Loihi backend.
+- [ ] `mcp-bindsnet` — MCP for BindsNET (1,678 ⭐). PyTorch-based SNN simulation.
+- [ ] `mcp-norse` — MCP for Norse (807 ⭐). PyTorch-based spiking neural networks.
+- [ ] `mcp-nest` — MCP for NEST (649 ⭐). Large-scale SNN simulations via PyNEST.
+- [ ] `mcp-neuron` — MCP for NEURON (524 ⭐). Computational neuroscience model building.
+- [ ] `mcp-n2d2` — MCP for N2D2 (160 ⭐). DNN simulation, quantization, export.
+- [ ] `mcp-neurosim` — MCP for NeuroSim (232 ⭐). RRAM/PCM/SRAM in-memory computing benchmarking.
+
+Exit condition: any neuromorphic researcher can ask an agent to "build a 2-layer SNN on Loihi 2" and get a trained, deployed model back.
+
+## Phase 7 — Analog AI / In-Memory Computing MCPs
+
+Greenfield: IBM AIHWKit (483 ⭐) and Sandia CrossSim (208 ⭐) have rich Python APIs. No MCP servers exist.
+
+- [ ] `mcp-aihwkit` — MCP for IBM AI Hardware Kit. Analog crossbar training, PCM device models, hardware-aware noise.
+- [ ] `mcp-crosssim` — MCP for Sandia CrossSim. Analog crossbar inference, PyTorch/Keras integration, GPU-accelerated.
+
+Exit condition: an agent can design an analog crossbar array, train with device non-idealities, and benchmark energy vs digital baseline.
+
+## Phase 8 — Device Physics / Compact Model MCPs
+
+Greenfield: zero MCP servers, zero LLM-agent tools, zero compact-model Python wrappers. Your FeFET papers give you unique credibility here.
+
+- [ ] `fefet-mcp` — MCP for FeFET compact models. Wrap Verilog-A models, generate I-V curves, simulate hysteresis.
+- [ ] `ubermag-mcp` — MCP for spintronics (Ubermag/OOMMF/Mumax3). Micromagnetics simulation via natural language.
+- [ ] `badcrossbar-mcp` — MCP for memristor crossbars (badcrossbar, 31 ⭐). Nodal analysis for passive crossbar arrays.
+- [ ] `mcp-compact-model` — MCP for generic compact model fitting. BSIM, Verilog-A, SPICE model parameter sweeps.
+
+Exit condition: a device physicist can ask an agent to "show me the I-V curve of an HfO₂ FeFET with 3 nm thickness at 300 K" and get a plotted result.
+
+## Phase 9 — Architecture Simulation MCPs
+
+Greenfield: GEM5 has a Python config system and is the standard architecture simulator. Zero MCP or LLM-agent integration exists.
+
+- [ ] `mcp-gem5` — MCP for GEM5. Configure SimObjects, run benchmarks, return IPC/miss-rate/energy.
+- [ ] `mcp-sst` — MCP for SST (Structural Simulation Toolkit). Structural-level architecture simulation.
+
+Exit condition: an architecture researcher can ask "simulate SPEC2017 on a 4-wide OoO core with 32KB L1 and 256KB L2" and get a structured performance report.
+
+## Phase 10 — SPICE / TCAD MCPs
+
+SPICE has active MCPs (spicebridge, ltspice-mcp) but gaps for proprietary tools. TCAD is completely empty.
+
+- [ ] `mcp-hspice` — MCP for HSPICE. Open-source-first (ngspice fallback), optional HSPICE adapter.
+- [ ] `mcp-spectre` — MCP for Spectre. Same open-source-first pattern.
+- [ ] `mcp-xyce` — MCP for Xyce (Sandia parallel SPICE). Wrap via PySpice (839 ⭐).
+- [ ] `tcad-mcp` — MCP for TCAD (Sentaurus/Silvaco). Tcl script generation, simulation dispatch, result parsing.
+
+Exit condition: a circuit designer can ask "run transient analysis on this netlist at 1 GHz" and get waveform data back — using ngspice by default, with HSPICE/Spectre as optional engines.
 
 ## Out of scope (this portfolio)
 

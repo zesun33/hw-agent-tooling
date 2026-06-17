@@ -7,6 +7,7 @@
 [![Standard: Strict](https://img.shields.io/badge/engineering%20standard-strict-blueviolet)](#-engineering-standard)
 [![Platforms: Linux | macOS | Windows](https://img.shields.io/badge/platforms-linux%20%7C%20macos%20%7C%20windows-lightgrey)](#-verified-on)
 [![Made by zesun33](https://img.shields.io/badge/maintained%20by-zesun33-0a0a0a)](https://github.com/zesun33)
+[![Landscape: 100+ tools](https://img.shields.io/badge/landscape-100%2B%20tools%20surveyed-informational)](./LANDSCAPE.md)
 
 ---
 
@@ -40,6 +41,8 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 
 Legend: 🚧 Building · 📋 Planned · ✅ Shipped · ⛔ Blocked
 
+> **See [LANDSCAPE.md](./LANDSCAPE.md)** for the full competitive analysis: 100+ tools surveyed across 14 domains — RTL, FPGA, synthesis, P&R, verification, SPICE, TCAD, device physics, neuromorphic/SNN, analog AI, architecture simulation, emerging devices (FeFET/MRAM/memristor), PCB, and quantum hardware.
+>
 > **Optional, deferred:** `astromorph` and `trilinearcim` (paper-linked research code) are intentionally not in this wave. They can be added later if there is a need for paper-aligned open-source software.
 
 ---

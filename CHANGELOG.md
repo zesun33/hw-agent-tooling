@@ -7,6 +7,8 @@ All notable changes to this repo are documented here. The format follows [Keep a
 ### Added
 
 - Initial landing-page README with portfolio identity, status tables, skill matrix, and verification matrix.
+- `LANDSCAPE.md` — comprehensive competitive analysis of 100+ tools across 14 domains (RTL, FPGA, SPICE, TCAD, neuromorphic, analog AI, architecture simulation, device physics, emerging devices, PCB, quantum).
+- Expanded `ROADMAP.md` with Phases 6–10 covering neuromorphic SNN MCPs, analog AI MCPs, device physics MCPs, architecture simulation MCPs, and SPICE/TCAD MCPs.
 
 ### Changed
 
