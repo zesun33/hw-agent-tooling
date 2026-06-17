@@ -131,6 +131,7 @@ Exit condition: a circuit designer can ask "run transient analysis on this netli
 
 Zero-setup, one command to a working hardware development environment. No reusable EDA infrastructure exists on Docker Hub or GitHub Actions today.
 
+- [x] `eda-docker-images` — Docker images for Verilog, SPICE, FPGA, ASIC workflows.
 - [ ] `eda-devcontainer` — VS Code Dev Containers with every open-source EDA tool pre-installed (Verilog suite, SPICE suite, FPGA suite). `git clone` → `code .` → everything works.
 - [ ] `gh-actions-for-hw` — Reusable GitHub Actions: `verilog-lint`, `verilog-simulate`, `yosys-synthesize`, `openroad-pnr`, `cocotb-test`, `spice-simulate`. Like `actions/setup-python` for hardware.
 - [ ] `hw-agent-scaffold` — `npx create-hw-agent` generates a complete AI-powered hardware project with MCP servers, skills, Makefile, and starter RTL.

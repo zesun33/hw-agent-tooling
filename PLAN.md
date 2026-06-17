@@ -38,6 +38,7 @@ This document tracks the build plan for the **Hardware Agent Tooling** portfolio
 **Purpose:** Shared Docker images for hardware development (Verilog, SPICE, FPGA, ASIC).
 
 **Images built:**
+
 | Image | Base | Tools |
 |---|---|---|
 | `zesun33/verilog` | ubuntu:24.04 | iverilog, verilator, gtkwave, python3, make, node |
@@ -46,12 +47,14 @@ This document tracks the build plan for the **Hardware Agent Tooling** portfolio
 | `zesun33/asic` | ubuntu:24.04 | yosys, opensta, openroad (optional) |
 
 **Files:**
+
 - 4 Dockerfiles
 - 4 smoke scripts
 - 6 fixture files (counter, RC filter, blinky, tiny_top)
 - verify.sh, Makefile, CI workflow
 
 **Verification:**
+
 - Gate 1 spec lock: ✅
 - Gate 2 static quality: ✅
 - Gate 3 unit tests: ✅ (Docker build + smoke script presence)
@@ -62,6 +65,7 @@ This document tracks the build plan for the **Hardware Agent Tooling** portfolio
 - Gate 8 post-publish: manual
 
 **Exit criteria met:**
+
 - [x] All 4 Dockerfiles exist
 - [x] All 4 smoke scripts exist
 - [x] Iconic fixtures per image
@@ -76,6 +80,7 @@ This document tracks the build plan for the **Hardware Agent Tooling** portfolio
 **Goal:** VS Code / Cursor / OpenCode devcontainer profiles using the Docker images from Repo 1.
 
 **Key deliverables:**
+
 - 4 devcontainer profiles (verilog, spice, fpga, asic)
 - Workspace tasks per profile
 - Extension recommendations
@@ -88,6 +93,7 @@ This document tracks the build plan for the **Hardware Agent Tooling** portfolio
 **Goal:** Reusable GitHub Actions for hardware CI.
 
 **Initial actions:**
+
 - `verilog-lint`
 - `verilog-simulate`
 - `cocotb-test`
