@@ -63,6 +63,9 @@ class ReadmeStructure(unittest.TestCase):
         # if a brand-new repo is added without being listed in the README.
         known = {
             "portfolio",
+            "eda-docker-images",
+            "eda-devcontainer",
+            "gh-actions-for-hw",
             "mcp-verilog",
             "hw-agent-skills",
             "mcp-cocotb",

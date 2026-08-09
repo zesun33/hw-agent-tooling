@@ -15,6 +15,10 @@ All notable changes to this repo are documented here. The format follows [Keep a
 
 ### Changed
 
+- Aligned status tables with reality: DevOps foundation (`eda-docker-images`, `eda-devcontainer`) marked shipped locally; agent MCP/skills repos marked Planned (not Building) until scaffolded.
+- Softened landing-page claims (Verified On Linux-first; Skill Matrix reflects shipped evidence; planned repos are not linked until they exist).
+- Lychee no longer accepts HTTP 404.
+
 ### Deprecated
 
 ### Removed
@@ -22,6 +26,7 @@ All notable changes to this repo are documented here. The format follows [Keep a
 ### Fixed
 
 - Excluded two flaky academic publication URLs from `lychee` so `make verify` is deterministic locally and in CI.
+- Fixed `PLAN.md` markdownlint MD032/MD036 so Gate 2 passes.
 
 ### Security
 

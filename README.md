@@ -4,8 +4,8 @@
 > I build MCP servers, agent skills, and CLIs that turn AI coding agents into capable hardware and ML-systems engineers.
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
-[![Standard: Strict](https://img.shields.io/badge/engineering%20standard-strict-blueviolet)](#-engineering-standard)
-[![Platforms: Linux | macOS | Windows](https://img.shields.io/badge/platforms-linux%20%7C%20macos%20%7C%20windows-lightgrey)](#-verified-on)
+[![Standard: Strict](https://img.shields.io/badge/engineering%20standard-strict-blueviolet)](#engineering-standard)
+[![Platforms: Linux-first](https://img.shields.io/badge/platforms-linux--first-lightgrey)](#verified-on)
 [![Made by zesun33](https://img.shields.io/badge/maintained%20by-zesun33-0a0a0a)](https://github.com/zesun33)
 [![Landscape: 100+ tools](https://img.shields.io/badge/landscape-100%2B%20tools%20surveyed-informational)](./LANDSCAPE.md)
 
@@ -20,7 +20,7 @@
 - **Selected work:** [TrilinearCIM (arXiv 2604.07628)](https://arxiv.org/abs/2604.07628) · [RMAAT (ICLR 2026)](https://openreview.net/forum?id=sTkJdbVxsI)
 - **Website:** [zesun33.github.io](https://zesun33.github.io)
 
-This repository is the **landing page** for a family of open-source tools I maintain. Every tool here ships with a tested contract, an installable artifact, and a verified agent-integration matrix.
+This repository is the **landing page** for a family of open-source hardware-agent tools. Shipped items clear the engineering gates below; planned items are sequenced in [ROADMAP.md](./ROADMAP.md) and are not installable yet.
 
 ---
 
@@ -30,14 +30,17 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 
 | Repo | Stack | What it does | Status |
 |---|---|---|---|
-| [`mcp-verilog`](https://github.com/zesun33/mcp-verilog) | TypeScript · MCP | Lint, compile, and simulate Verilog/SystemVerilog through iverilog/Verilator. | 🚧 Building |
-| [`hw-agent-skills`](https://github.com/zesun33/hw-agent-skills) | Markdown · Skills | Portable skills (rtl-reviewer, synthesis-triage, kernel-roofline, asic-flow-operator) for Claude Code, OpenCode, Codex, and Cursor. | 🚧 Building |
-| [`mcp-cocotb`](https://github.com/zesun33/mcp-cocotb) | Python · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | 📋 Planned |
-| [`mcp-yosys`](https://github.com/zesun33/mcp-yosys) | TypeScript · MCP | Synthesize RTL, return cell count, hierarchy, and warnings as structured JSON. | 📋 Planned |
-| [`mcp-rtl-review`](https://github.com/zesun33/mcp-rtl-review) | Python · MCP | Static RTL review (width mismatches, missing resets, blocking vs non-blocking). | 📋 Planned |
-| [`mcp-openroad`](https://github.com/zesun33/mcp-openroad) | TypeScript · MCP | Floorplan, place, and route through OpenROAD. Linux-first. | 📋 Planned |
-| [`kernel-forge`](https://github.com/zesun33/kernel-forge) | Go CLI + Python | Agent-friendly kernel codegen, benchmark, and roofline for Triton/CUDA. | 📋 Planned |
-| [`agentic-asic`](https://github.com/zesun33/agentic-asic) | TypeScript + Python | Orchestrates the family: RTL → review → simulate → synth → P&R. | 📋 Planned |
+| `eda-docker-images` | Docker · Podman | Shared Verilog / SPICE / FPGA / ASIC images (Hub publish pending). | ✅ Shipped (local) |
+| `eda-devcontainer` | Dev Containers | VS Code / Cursor profiles on top of those images. | ✅ Shipped (local) |
+| `mcp-verilog` | TypeScript · MCP | Lint, compile, and simulate Verilog/SystemVerilog through iverilog/Verilator. | 📋 Planned |
+| `hw-agent-skills` | Markdown · Skills | Portable skills (rtl-reviewer, synthesis-triage, kernel-roofline, asic-flow-operator). | 📋 Planned |
+| `mcp-cocotb` | Python · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | 📋 Planned |
+| `mcp-yosys` | TypeScript · MCP | Synthesize RTL, return cell count, hierarchy, and warnings as structured JSON. | 📋 Planned |
+| `mcp-rtl-review` | Python · MCP | Static RTL review (width mismatches, missing resets, blocking vs non-blocking). | 📋 Planned |
+| `mcp-openroad` | TypeScript · MCP | Floorplan, place, and route through OpenROAD. Linux-first. | 📋 Planned |
+| `kernel-forge` | Go CLI + Python | Agent-friendly kernel codegen, benchmark, and roofline for Triton/CUDA. | 📋 Planned |
+| `agentic-asic` | TypeScript + Python | Orchestrates the family: RTL → review → simulate → synth → P&R. | 📋 Planned |
+| `gh-actions-for-hw` | GitHub Actions | Reusable hardware CI: lint, simulate, cocotb, yosys synth. | 📋 Planned |
 
 Legend: 🚧 Building · 📋 Planned · ✅ Shipped · ⛔ Blocked
 
@@ -93,33 +96,36 @@ Google Scholar: [j-zfUj8AAAAJ](https://scholar.google.com/citations?user=j-zfUj8
 
 ## Skill Matrix
 
-| Skill | Strongest evidence |
+| Skill | Strongest evidence today |
 |---|---|
-| MCP server design | `mcp-verilog` (and the rest of the family) |
-| Hardware / EDA automation | `mcp-verilog`, `mcp-yosys`, `agentic-asic` |
-| Agent workflow design | `hw-agent-skills`, `agentic-asic` |
-| CLI engineering | `kernel-forge` |
-| ML systems awareness | `kernel-forge`, `triton-flash-attention-lite` |
+| DevOps / EDA containers | `eda-docker-images`, `eda-devcontainer` |
 | Existing systems depth | `cuda-gemm-optimization`, `cuda-memory-benchmark`, `parallel-computing-lab` |
+| ML systems awareness | `triton-flash-attention-lite`, research (CIM / RMAAT) |
 | Research depth | ICLR 2026, IEEE TCDS, Matter (Cell Press) |
+| MCP / agent tooling (planned) | `mcp-verilog`, `hw-agent-skills`, `agentic-asic` (see roadmap) |
 
 ---
 
 ## Verified On
 
-Every tool in this family is built behind a strict release gate. The current verified matrix:
+CI for this landing page runs on `ubuntu-latest`. Container tools are verified on Linux hosts (Docker/Podman). macOS/Windows are expected via containers once Hub images ship — not claimed as CI-verified yet.
 
 | Repo | Linux | macOS | Windows | Agents verified |
 |---|---|---|---|---|
-| `portfolio` | ✅ | ✅ | ✅ | n/a |
-| `mcp-verilog` | 🚧 | 🚧 | 📋 | 🚧 |
-| `hw-agent-skills` | 🚧 | 🚧 | 📋 | 🚧 |
+| `portfolio` | ✅ (CI) | — | — | n/a |
+| `eda-docker-images` | ✅ (local smokes) | —¹ | —¹ | n/a |
+| `eda-devcontainer` | ✅ (local smokes) | —¹ | —¹ | n/a |
+| `mcp-verilog` | 📋 | 📋 | 📋 | 📋 |
+| `hw-agent-skills` | 📋 | 📋 | 📋 | 📋 |
 | `mcp-cocotb` | 📋 | 📋 | 📋 | 📋 |
 | `mcp-yosys` | 📋 | 📋 | 📋 | 📋 |
 | `mcp-rtl-review` | 📋 | 📋 | 📋 | 📋 |
 | `mcp-openroad` | 📋 | ⛔ | ⛔ | 📋 |
 | `kernel-forge` | 📋 | 📋 | 📋 | 📋 |
 | `agentic-asic` | 📋 | ⛔ | ⛔ | 📋 |
+| `gh-actions-for-hw` | 📋 | 📋 | 📋 | n/a |
+
+¹ Container images may run on macOS/Windows hosts; not part of current CI.
 
 > "Agents verified" = installed and exercised in **Claude Code, OpenCode, OpenAI Codex, and Cursor** with one happy-path and one failure-path transcript recorded in the repo.
 
@@ -127,10 +133,10 @@ Every tool in this family is built behind a strict release gate. The current ver
 
 ## How to use this portfolio
 
-- **Recruiters / hiring managers:** Start with the [Skill Matrix](#-skill-matrix) and [`agentic-asic`](https://github.com/zesun33/agentic-asic) (when shipped) for the end-to-end demo.
-- **Hardware engineers:** Install [`mcp-verilog`](https://github.com/zesun33/mcp-verilog) and try the `lint` / `simulate` tools on your own RTL.
-- **Agent builders:** Drop [`hw-agent-skills`](https://github.com/zesun33/hw-agent-skills) into your client and add the MCP servers you need.
-- **Researchers:** See the [Research](#-research) section for the papers behind the design choices.
+- **Recruiters / hiring managers:** Start with the [Skill Matrix](#skill-matrix); the end-to-end demo will live in `agentic-asic` once shipped.
+- **Hardware engineers:** Use `eda-docker-images` / `eda-devcontainer` today; `mcp-verilog` is next for lint / simulate on your RTL.
+- **Agent builders:** `hw-agent-skills` plus the MCP family are the intended install path once Phase 1 lands.
+- **Researchers:** See the [Research](#research) section for the papers behind the design choices.
 
 ---
 

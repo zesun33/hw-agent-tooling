@@ -10,7 +10,8 @@ timeout = 20
 max_concurrency = 8
 
 method = "get"
-accept = ["200", "203", "206", "301", "302", "303", "304", "307", "308", "400", "401", "403", "404", "429"]
+# Do not accept 404 — dead planned-repo links must fail CI.
+accept = ["200", "203", "206", "301", "302", "303", "304", "307", "308", "401", "403", "429"]
 require_https = false
 exclude_loopback = true
 exclude_private = true
@@ -23,6 +24,7 @@ exclude = [
   '^https://doi\.org/10\.1109/ICONS69015\.2025\.00043$',
   '^https://ieeexplore\.ieee\.org/document/10976578/?$',
   '^https://img\.shields\.io/.*',
+  '^https://www\.cell\.com/matter/.*',
 ]
 
 exclude_path = [
