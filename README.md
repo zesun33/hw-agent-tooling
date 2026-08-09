@@ -30,8 +30,8 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 
 | Repo | Stack | What it does | Status |
 |---|---|---|---|
-| `eda-docker-images` | Docker · Podman | Shared Verilog / SPICE / FPGA / ASIC images (private source; Hub pending). | ✅ Shipped (private) |
-| `eda-devcontainer` | Dev Containers | VS Code / Cursor profiles on top of those images (private source). | ✅ Shipped (private) |
+| [`eda-docker-images`](https://github.com/zesun33/eda-docker-images) | Docker · Podman | Shared Verilog / SPICE / FPGA / ASIC images (Hub pending). | ✅ Shipped |
+| [`eda-devcontainer`](https://github.com/zesun33/eda-devcontainer) | Dev Containers | VS Code / Cursor profiles on top of those images. | ✅ Shipped |
 | `mcp-verilog` | TypeScript · MCP | Lint, compile, and simulate Verilog/SystemVerilog through iverilog/Verilator. | 📋 Planned |
 | `hw-agent-skills` | Markdown · Skills | Portable skills (rtl-reviewer, synthesis-triage, kernel-roofline, asic-flow-operator). | 📋 Planned |
 | `mcp-cocotb` | Python · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | 📋 Planned |
@@ -112,7 +112,7 @@ CI for this landing page runs on `ubuntu-latest`. Container tools are verified o
 
 | Repo | Linux | macOS | Windows | Agents verified |
 |---|---|---|---|---|
-| `portfolio` | ✅ (CI) | — | — | n/a |
+| `hw-agent-tooling` | ✅ (CI) | — | — | n/a |
 | `eda-docker-images` | ✅ (local smokes) | —¹ | —¹ | n/a |
 | `eda-devcontainer` | ✅ (local smokes) | —¹ | —¹ | n/a |
 | `mcp-verilog` | 📋 | 📋 | 📋 | 📋 |

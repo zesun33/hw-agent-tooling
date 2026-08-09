@@ -62,7 +62,7 @@ class ReadmeStructure(unittest.TestCase):
         # The README references a known set of family repos. This test fails
         # if a brand-new repo is added without being listed in the README.
         known = {
-            "portfolio",
+            "hw-agent-tooling",
             "eda-docker-images",
             "eda-devcontainer",
             "gh-actions-for-hw",
@@ -128,7 +128,7 @@ class RoadmapStructure(unittest.TestCase):
     def test_phase_1_marks_portfolio_done(self):
         self.assertRegex(
             self.roadmap,
-            r"(?s)Phase 1.*?- \[x\] `portfolio`",
+            r"(?s)Phase 1.*?- \[x\] `hw-agent-tooling`",
         )
 
     def test_references_landscape(self):

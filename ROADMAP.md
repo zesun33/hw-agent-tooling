@@ -17,7 +17,7 @@ See [LANDSCAPE.md](./LANDSCAPE.md) for the full competitive analysis backing eve
 
 The minimum coherent public story: a landing page plus the two highest-signal tools.
 
-- [x] `portfolio` — landing page (this repo).
+- [x] `hw-agent-tooling` — landing page (this repo).
 - [ ] `mcp-verilog` — MCP server: lint, compile, simulate, toolchain-info.
   - [ ] MVP scope locked.
   - [ ] Contract tests for `tools/list`.
@@ -186,5 +186,5 @@ Exit condition: a graduate student can work through the tutorial and understand 
 
 ## Tracking
 
-- Public GitHub Project board: `zesun33/portfolio` → Projects → **AI Agent Tooling Roadmap**.
+- Public GitHub Project board: `zesun33/hw-agent-tooling` → Projects → **AI Agent Tooling Roadmap**.
 - Each item maps to a tracked issue in the relevant repo.

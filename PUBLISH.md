@@ -16,7 +16,7 @@ gh auth login
 # From inside this directory:
 
 # Create the public repo on GitHub. Adjust the description if you like.
-gh repo create zesun33/portfolio \
+gh repo create zesun33/hw-agent-tooling \
     --public \
     --source=. \
     --remote=origin \
@@ -24,7 +24,7 @@ gh repo create zesun33/portfolio \
     --push
 
 # Optional: pin topics so the repo is discoverable.
-gh repo edit zesun33/portfolio --add-topic mcp,hardware,verilog,ai-agents,portfolio
+gh repo edit zesun33/hw-agent-tooling --add-topic mcp,hardware,verilog,ai-agents,portfolio
 ```
 
 ## Verify the CI is green
@@ -45,21 +45,21 @@ After the first push, run these in a fresh shell:
 ```bash
 # Clone somewhere clean and run the verify script.
 tmp=$(mktemp -d)
-git clone https://github.com/zesun33/portfolio.git "$tmp/portfolio"
-cd "$tmp/portfolio"
+git clone https://github.com/zesun33/hw-agent-tooling.git "$tmp/hw-agent-tooling"
+cd "$tmp/hw-agent-tooling"
 make verify
 cd -
 rm -rf "$tmp"
 ```
 
-If that passes, you can mark Phase 1 / portfolio ✅ in the ROADMAP.
+If that passes, you can mark Phase 1 / hw-agent-tooling ✅ in the ROADMAP.
 
 ## Wiring the website
 
 Add a one-liner to `zesun33/zesun33.github.io` linking to this repo:
 
 ```markdown
-- [AI Agent Tooling portfolio](https://github.com/zesun33/portfolio)
+- [AI Agent Tooling portfolio](https://github.com/zesun33/hw-agent-tooling)
 ```
 
 ## Recurring
