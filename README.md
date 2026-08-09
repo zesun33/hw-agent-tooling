@@ -30,8 +30,8 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 
 | Repo | Stack | What it does | Status |
 |---|---|---|---|
-| [`eda-docker-images`](https://github.com/zesun33/eda-docker-images) | Docker · Podman | Shared Verilog / SPICE / FPGA / ASIC images (Hub publish pending). | ✅ Shipped (source) |
-| [`eda-devcontainer`](https://github.com/zesun33/eda-devcontainer) | Dev Containers | VS Code / Cursor profiles on top of those images. | ✅ Shipped (source) |
+| `eda-docker-images` | Docker · Podman | Shared Verilog / SPICE / FPGA / ASIC images (private source; Hub pending). | ✅ Shipped (private) |
+| `eda-devcontainer` | Dev Containers | VS Code / Cursor profiles on top of those images (private source). | ✅ Shipped (private) |
 | `mcp-verilog` | TypeScript · MCP | Lint, compile, and simulate Verilog/SystemVerilog through iverilog/Verilator. | 📋 Planned |
 | `hw-agent-skills` | Markdown · Skills | Portable skills (rtl-reviewer, synthesis-triage, kernel-roofline, asic-flow-operator). | 📋 Planned |
 | `mcp-cocotb` | Python · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | 📋 Planned |
