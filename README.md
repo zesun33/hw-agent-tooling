@@ -44,6 +44,24 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 
 Legend: 🚧 Building · 📋 Planned · ✅ Shipped · ⛔ Blocked
 
+---
+
+### Featured Showcase: `mcp-verilog` in Action
+
+The first shipped MCP server, [`mcp-verilog`](https://github.com/zesun33/mcp-verilog), replaces noisy compiler text with structured, token-efficient JSON:
+
+```json
+// Closed-loop simulation passing in 318ms over stdio:
+{
+  "success": true,
+  "exitCode": 0,
+  "stdout": "PASS: Counter testbench completed successfully with count=5\n"
+}
+```
+> See the full live tour in [`mcp-verilog/README.md`](../mcp-verilog/README.md#⚡-quick-tour-see-it-in-action).
+
+---
+
 > **See [LANDSCAPE.md](./LANDSCAPE.md)** for the full competitive analysis: 100+ tools surveyed across 14 domains — RTL, FPGA, synthesis, P&R, verification, SPICE, TCAD, device physics, neuromorphic/SNN, analog AI, architecture simulation, emerging devices (FeFET/MRAM/memristor), PCB, and quantum hardware.
 >
 > **Optional, deferred:** `astromorph` and `trilinearcim` (paper-linked research code) are intentionally not in this wave. They can be added later if there is a need for paper-aligned open-source software.
