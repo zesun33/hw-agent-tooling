@@ -1,0 +1,115 @@
+{
+  "passed": false,
+  "score": 0,
+  "totalViolations": 10,
+  "errors": 5,
+  "warnings": 5,
+  "info": 0,
+  "violations": [
+    {
+      "ruleId": "SEQ_BLOCKING_ASSIGN",
+      "severity": "error",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 15,
+      "column": 20,
+      "message": "Blocking assignment '=' to 'wr_ptr' inside sequential (clocked) block. This causes simulation race conditions.",
+      "fixSuggestion": "Replace '=' with non-blocking assignment '<=' to 'wr_ptr'."
+    },
+    {
+      "ruleId": "SEQ_BLOCKING_ASSIGN",
+      "severity": "error",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 16,
+      "column": 20,
+      "message": "Blocking assignment '=' to 'full' inside sequential (clocked) block. This causes simulation race conditions.",
+      "fixSuggestion": "Replace '=' with non-blocking assignment '<=' to 'full'."
+    },
+    {
+      "ruleId": "SEQ_BLOCKING_ASSIGN",
+      "severity": "error",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 18,
+      "column": 20,
+      "message": "Blocking assignment '=' to 'wr_ptr' inside sequential (clocked) block. This causes simulation race conditions.",
+      "fixSuggestion": "Replace '=' with non-blocking assignment '<=' to 'wr_ptr'."
+    },
+    {
+      "ruleId": "SEQ_BLOCKING_ASSIGN",
+      "severity": "error",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 19,
+      "column": 20,
+      "message": "Blocking assignment '=' to 'full' inside sequential (clocked) block. This causes simulation race conditions.",
+      "fixSuggestion": "Replace '=' with non-blocking assignment '<=' to 'full'."
+    },
+    {
+      "ruleId": "RESET_POLARITY_MISMATCH",
+      "severity": "error",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 14,
+      "message": "Reset polarity inversion: sensitivity list declares active-low reset 'rst_n', but if condition checks active-high 'rst_n'.",
+      "fixSuggestion": "Change condition to 'if (!rst_n)' to match sensitivity list polarity."
+    },
+    {
+      "ruleId": "WIDTH_MISMATCH",
+      "severity": "warning",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 25,
+      "column": 24,
+      "message": "Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'data_in' generates 8 bits.",
+      "fixSuggestion": "Explicitly slice operands (e.g. signal[3:0]) or size constants to match destination width."
+    },
+    {
+      "ruleId": "BLKSEQ",
+      "severity": "warning",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 15,
+      "column": 20,
+      "message": "Blocking assignment '=' in sequential logic process",
+      "fixSuggestion": "Review and resolve this warning according to RTL design guidelines."
+    },
+    {
+      "ruleId": "BLKSEQ",
+      "severity": "warning",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 16,
+      "column": 20,
+      "message": "Blocking assignment '=' in sequential logic process",
+      "fixSuggestion": "Review and resolve this warning according to RTL design guidelines."
+    },
+    {
+      "ruleId": "BLKSEQ",
+      "severity": "warning",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 18,
+      "column": 20,
+      "message": "Blocking assignment '=' in sequential logic process",
+      "fixSuggestion": "Review and resolve this warning according to RTL design guidelines."
+    },
+    {
+      "ruleId": "BLKSEQ",
+      "severity": "warning",
+      "file": "src/buggy_fifo_ctrl.v",
+      "line": 19,
+      "column": 20,
+      "message": "Blocking assignment '=' in sequential logic process",
+      "fixSuggestion": "Review and resolve this warning according to RTL design guidelines."
+    }
+  ],
+  "metrics": {
+    "modulesAnalyzed": 1,
+    "alwaysBlocksAnalyzed": 2,
+    "sequentialBlocks": 1,
+    "combinationalBlocks": 1,
+    "linesAnalyzed": 29
+  },
+  "rulesChecked": [
+    "SEQ_BLOCKING_ASSIGN",
+    "COMB_NONBLOCKING_ASSIGN",
+    "RESET_POLARITY_MISMATCH",
+    "WIDTH_MISMATCH",
+    "UNDRIVEN_NET",
+    "COMBINATIONAL_LOOP",
+    "UNUSED_SIGNAL"
+  ]
+}

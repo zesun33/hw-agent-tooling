@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "score": 100,
+  "totalViolations": 0,
+  "errors": 0,
+  "warnings": 0,
+  "info": 0,
+  "violations": [],
+  "metrics": {
+    "modulesAnalyzed": 1,
+    "alwaysBlocksAnalyzed": 2,
+    "sequentialBlocks": 1,
+    "combinationalBlocks": 1,
+    "linesAnalyzed": 29
+  },
+  "rulesChecked": [
+    "SEQ_BLOCKING_ASSIGN",
+    "COMB_NONBLOCKING_ASSIGN",
+    "RESET_POLARITY_MISMATCH",
+    "WIDTH_MISMATCH",
+    "UNDRIVEN_NET",
+    "COMBINATIONAL_LOOP",
+    "UNUSED_SIGNAL"
+  ]
+}

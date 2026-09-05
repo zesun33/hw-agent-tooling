@@ -1,0 +1,8 @@
+{
+  "success": true,
+  "exitCode": 0,
+  "timedOut": false,
+  "stdout": "ALL FIFO TESTS PASSED\nsrc/tb_fifo_ctrl.v:42: $finish called at 45000 (1ps)\n",
+  "stderr": "",
+  "errors": []
+}

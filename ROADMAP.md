@@ -40,9 +40,9 @@ Exit condition: a hardware engineer can install `mcp-verilog` and at least one `
 - [x] `mcp-cocotb` — run cocotb testbenches, summarize results.
 - [x] `mcp-yosys` — synthesis wrapper, structured stats.
 - [x] `mcp-rtl-review` — AST-backed static review.
-- [ ] End-to-end demo: RTL → review → compile → simulate → synth.
+- [x] End-to-end demo: RTL → review → compile → simulate → synth ([`examples/end-to-end-demo`](./examples/end-to-end-demo)).
 
-Exit condition: a user can run the family end-to-end on a single tiny design.
+Exit condition: a user can run the family end-to-end on a single tiny design. (Completed)
 
 ## Phase 3 — Flagship CLI
 
