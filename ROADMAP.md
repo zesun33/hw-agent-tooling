@@ -25,13 +25,13 @@ The minimum coherent public story: a landing page plus the two highest-signal to
   - [x] Packaging: TypeScript build and dist/ produced.
   - [x] Docs: quickstart commands and client configs.
   - [x] Agent matrix: Claude Desktop, Cursor, Antigravity.
-- [ ] `hw-agent-skills` — portable skills pack.
-  - [ ] `rtl-reviewer` skill.
-  - [ ] `verilog-testbench-writer` skill.
-  - [ ] `synthesis-triage` skill.
-  - [ ] `kernel-roofline-explainer` skill.
-  - [ ] `asic-flow-operator` skill.
-  - [ ] Per-skill transcript in `agents/`.
+- [x] `hw-agent-skills` — portable skills pack.
+  - [x] `rtl-reviewer` skill.
+  - [x] `verilog-testbench-writer` skill.
+  - [x] `synthesis-triage` skill.
+  - [x] `kernel-roofline-explainer` skill.
+  - [x] `asic-flow-operator` skill.
+  - [x] Cursor `.mdc` export and schema validation.
 
 Exit condition: a hardware engineer can install `mcp-verilog` and at least one `hw-agent-skills` skill, run it in all four target clients, and have a recorded transcript.
 
