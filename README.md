@@ -26,7 +26,7 @@ This repository is the **landing page** for a family of open-source hardware-age
 
 ## AI Agent Tools — the new family
 
-These are agent-facing tools: MCP servers, agent skills, and CLIs that any modern coding agent (Claude Code, OpenCode, OpenAI Codex, Cursor) can call.
+These are agent-facing tools: MCP servers, agent skills, and CLIs that any modern coding agent or AI IDE (**Cursor**, **Windsurf**, **GitHub Copilot / OpenAI Codex**, **Claude Code**, **Google Antigravity**, **OpenCode**, **Cline**) can call via the open Model Context Protocol (MCP).
 
 | Repo | Stack | What it does | Status |
 |---|---|---|---|
