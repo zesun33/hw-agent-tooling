@@ -37,7 +37,7 @@ Exit condition: a hardware engineer can install `mcp-verilog` and at least one `
 
 ## Phase 2 — Hardware-agent suite
 
-- [ ] `mcp-cocotb` — run cocotb testbenches, summarize results.
+- [x] `mcp-cocotb` — run cocotb testbenches, summarize results.
 - [ ] `mcp-yosys` — synthesis wrapper, structured stats.
 - [ ] `mcp-rtl-review` — AST-backed static review.
 - [ ] End-to-end demo: RTL → review → compile → simulate → synth.

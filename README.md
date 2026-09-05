@@ -34,7 +34,7 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 | [`eda-devcontainer`](https://github.com/zesun33/eda-devcontainer) | Dev Containers | VS Code / Cursor profiles on top of those images. | ✅ Shipped |
 | [`mcp-verilog`](https://github.com/zesun33/mcp-verilog) | TypeScript · MCP | Lint, compile, and simulate Verilog/SystemVerilog through iverilog/Verilator. | ✅ Shipped |
 | [`hw-agent-skills`](https://github.com/zesun33/hw-agent-skills) | Markdown · Skills | Portable skills (rtl-reviewer, synthesis-triage, kernel-roofline, asic-flow-operator). | ✅ Shipped |
-| `mcp-cocotb` | Python · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | 📋 Planned |
+| [`mcp-cocotb`](https://github.com/zesun33/mcp-cocotb) | TypeScript · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | ✅ Shipped |
 | `mcp-yosys` | TypeScript · MCP | Synthesize RTL, return cell count, hierarchy, and warnings as structured JSON. | 📋 Planned |
 | `mcp-rtl-review` | Python · MCP | Static RTL review (width mismatches, missing resets, blocking vs non-blocking). | 📋 Planned |
 | `mcp-openroad` | TypeScript · MCP | Floorplan, place, and route through OpenROAD. Linux-first. | 📋 Planned |
@@ -75,7 +75,9 @@ How the entire stack works together in closed-loop design:
 ### The 3-Step Closed-Loop Execution
 
 #### 1. Static Audit via `hw-agent-skills`
+
 Before compiling, the agent applies the [`rtl-reviewer`](../hw-agent-skills/skills/rtl-reviewer/SKILL.md) skill to detect common synthesis hazards:
+
 ```text
 ✔ Checked: All sequential assignments use non-blocking '<='
 ✔ Checked: All combinational branches cover default values (no inferred latches)
@@ -83,7 +85,9 @@ Before compiling, the agent applies the [`rtl-reviewer`](../hw-agent-skills/skil
 ```
 
 #### 2. Dispatched via `mcp-verilog` (< 100 Tokens)
+
 The agent calls `verilog_simulate` to execute the design against its self-checking testbench:
+
 ```json
 {
   "method": "tools/call",
@@ -98,7 +102,9 @@ The agent calls `verilog_simulate` to execute the design against its self-checki
 ```
 
 #### 3. Bounded Simulation inside `eda-docker-images` (318ms)
+
 The server mounts the workspace into the `eda-docker-images` Verilog container and returns structured results:
+
 ```json
 {
   "success": true,
