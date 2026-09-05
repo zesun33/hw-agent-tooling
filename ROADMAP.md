@@ -39,7 +39,7 @@ Exit condition: a hardware engineer can install `mcp-verilog` and at least one `
 
 - [x] `mcp-cocotb` — run cocotb testbenches, summarize results.
 - [x] `mcp-yosys` — synthesis wrapper, structured stats.
-- [ ] `mcp-rtl-review` — AST-backed static review.
+- [x] `mcp-rtl-review` — AST-backed static review.
 - [ ] End-to-end demo: RTL → review → compile → simulate → synth.
 
 Exit condition: a user can run the family end-to-end on a single tiny design.
