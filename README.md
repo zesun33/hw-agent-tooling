@@ -46,19 +46,68 @@ Legend: 🚧 Building · 📋 Planned · ✅ Shipped · ⛔ Blocked
 
 ---
 
-### Featured Showcase: `mcp-verilog` in Action
+## ⚡ Quick Tour: The Autonomous Hardware Agent in Action
 
-The first shipped MCP server, [`mcp-verilog`](https://github.com/zesun33/mcp-verilog), replaces noisy compiler text with structured, token-efficient JSON:
+How the entire stack works together in closed-loop design:
 
+```text
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. COGNITIVE LAYER (hw-agent-skills)                                        │
+│    Agent checks rtl-reviewer & verilog-testbench-writer rubrics.            │
+│    Enforces: non-blocking '<=', latch prevention, $fatal assertion suites.  │
+└──────────────────────────────────────┬──────────────────────────────────────┘
+                                       │ generates clean RTL & testbench
+                                       ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 2. PROTOCOL BRIDGE (mcp-verilog)                                            │
+│    Agent calls verilog_simulate or verilog_lint over stdio JSON-RPC.        │
+│    Replaces 5,000 lines of noisy terminal output with < 100 tokens of JSON. │
+└──────────────────────────────────────┬──────────────────────────────────────┘
+                                       │ dispatches command with timeout guard
+                                       ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 3. ISOLATED RUNTIME (eda-docker-images & eda-devcontainer)                  │
+│    Executes iverilog 12.0 / Verilator 5.020 inside rootless Podman.         │
+│    Zero host install, zero sudo, single-user namespace compatible.          │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### The 3-Step Closed-Loop Execution
+
+#### 1. Static Audit via `hw-agent-skills`
+Before compiling, the agent applies the [`rtl-reviewer`](../hw-agent-skills/skills/rtl-reviewer/SKILL.md) skill to detect common synthesis hazards:
+```text
+✔ Checked: All sequential assignments use non-blocking '<='
+✔ Checked: All combinational branches cover default values (no inferred latches)
+✔ Checked: Active-low asynchronous reset (rst_n) cleanly decoupled from clock
+```
+
+#### 2. Dispatched via `mcp-verilog` (< 100 Tokens)
+The agent calls `verilog_simulate` to execute the design against its self-checking testbench:
 ```json
-// Closed-loop simulation passing in 318ms over stdio:
+{
+  "method": "tools/call",
+  "params": {
+    "name": "verilog_simulate",
+    "arguments": {
+      "files": ["counter.v", "counter_tb.v"],
+      "top_module": "counter_tb"
+    }
+  }
+}
+```
+
+#### 3. Bounded Simulation inside `eda-docker-images` (318ms)
+The server mounts the workspace into the `eda-docker-images` Verilog container and returns structured results:
+```json
 {
   "success": true,
   "exitCode": 0,
-  "stdout": "PASS: Counter testbench completed successfully with count=5\n"
+  "timedOut": false,
+  "stdout": "PASS: Counter testbench completed successfully with count=5\n",
+  "errors": []
 }
 ```
-> See the full live tour in [`mcp-verilog/README.md`](../mcp-verilog/README.md#⚡-quick-tour-see-it-in-action).
 
 ---
 
