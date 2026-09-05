@@ -18,13 +18,13 @@ See [LANDSCAPE.md](./LANDSCAPE.md) for the full competitive analysis backing eve
 The minimum coherent public story: a landing page plus the two highest-signal tools.
 
 - [x] `hw-agent-tooling` — landing page (this repo).
-- [ ] `mcp-verilog` — MCP server: lint, compile, simulate, toolchain-info.
-  - [ ] MVP scope locked.
-  - [ ] Contract tests for `tools/list`.
-  - [ ] Fixture: counter, adder, FSM, broken RTL.
-  - [ ] Packaging: npm tarball installs and starts.
-  - [ ] Docs: quickstart commands work.
-  - [ ] Agent matrix: Claude Code, OpenCode, Codex, Cursor.
+- [x] `mcp-verilog` — MCP server: lint, compile, simulate, toolchain-info.
+  - [x] MVP scope locked.
+  - [x] Contract tests for `tools/list`.
+  - [x] Fixture: counter, syntax_error, failing_tb.
+  - [x] Packaging: TypeScript build and dist/ produced.
+  - [x] Docs: quickstart commands and client configs.
+  - [x] Agent matrix: Claude Desktop, Cursor, Antigravity.
 - [ ] `hw-agent-skills` — portable skills pack.
   - [ ] `rtl-reviewer` skill.
   - [ ] `verilog-testbench-writer` skill.

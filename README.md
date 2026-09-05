@@ -32,7 +32,7 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 |---|---|---|---|
 | [`eda-docker-images`](https://github.com/zesun33/eda-docker-images) | Docker · Podman | Shared Verilog / SPICE / FPGA / ASIC images (Hub pending). | ✅ Shipped |
 | [`eda-devcontainer`](https://github.com/zesun33/eda-devcontainer) | Dev Containers | VS Code / Cursor profiles on top of those images. | ✅ Shipped |
-| `mcp-verilog` | TypeScript · MCP | Lint, compile, and simulate Verilog/SystemVerilog through iverilog/Verilator. | 📋 Planned |
+| [`mcp-verilog`](https://github.com/zesun33/mcp-verilog) | TypeScript · MCP | Lint, compile, and simulate Verilog/SystemVerilog through iverilog/Verilator. | ✅ Shipped |
 | `hw-agent-skills` | Markdown · Skills | Portable skills (rtl-reviewer, synthesis-triage, kernel-roofline, asic-flow-operator). | 📋 Planned |
 | `mcp-cocotb` | Python · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | 📋 Planned |
 | `mcp-yosys` | TypeScript · MCP | Synthesize RTL, return cell count, hierarchy, and warnings as structured JSON. | 📋 Planned |
