@@ -1,6 +1,6 @@
 # Md Zesun Ahmed Mia — AI Agent Tooling for Hardware + ML Systems
 
-> PhD candidate in Electrical Engineering at Penn State. Ex-Intel graduate technical intern.
+> PhD candidate in Electrical Engineering at Penn State · Ex-Micron ML engineer intern · Ex-Intel graduate technical intern.
 > I build MCP servers, agent skills, and CLIs that turn AI coding agents into capable hardware and ML-systems engineers.
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
@@ -16,7 +16,7 @@
 - **Name:** Md Zesun Ahmed Mia
 - **Role:** PhD Candidate, Electrical Engineering, Penn State
 - **Focus:** Neuromorphic computing · Compute-in-Memory (CIM) · ML accelerators · Hardware-aware ML
-- **Industry:** Ex-Intel graduate technical intern (thin film process + AI process models)
+- **Industry:** Ex-Micron ML engineer intern (CIM-NVM pathfinding & LLM serving disaggregation) · Ex-Intel graduate technical intern (thin film process & AI process models)
 - **Selected work:** [TrilinearCIM (arXiv 2604.07628)](https://arxiv.org/abs/2604.07628) · [RMAAT (ICLR 2026)](https://openreview.net/forum?id=sTkJdbVxsI)
 - **Website:** [zesun33.github.io](https://zesun33.github.io)
 
