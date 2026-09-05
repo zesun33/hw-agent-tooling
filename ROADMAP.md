@@ -57,7 +57,7 @@ Exit condition: stable JSON schema and one reproducible operator path.
 
 ## Phase 4 — Full physical-design flow
 
-- [ ] `mcp-openroad` — Linux-first P&R wrapper.
+- [x] `mcp-openroad` — Linux-first P&R wrapper.
 - [ ] `agentic-asic` — orchestrator that drives the family end-to-end.
 - [ ] One deterministic demo flow with golden transcripts.
 

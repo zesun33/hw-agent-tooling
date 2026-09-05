@@ -77,7 +77,7 @@ gate1_spec() {
 # -- Gate 2: static quality ----------------------------------------------------
 # markdownlint-cli2.
 gate2_static() {
-  npx --yes markdownlint-cli2 "**/*.md" >/dev/null
+  npx --prefer-offline --yes markdownlint-cli2 "**/*.md" >/dev/null
 }
 
 # -- Gate 3: unit tests --------------------------------------------------------

@@ -37,7 +37,7 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 | [`mcp-cocotb`](https://github.com/zesun33/mcp-cocotb) | TypeScript · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | ✅ Shipped |
 | [`mcp-yosys`](https://github.com/zesun33/mcp-yosys) | TypeScript · MCP | Synthesize RTL, return cell count, hierarchy, and warnings as structured JSON. | ✅ Shipped |
 | [`mcp-rtl-review`](https://github.com/zesun33/mcp-rtl-review) | TypeScript · MCP | Static RTL review (width mismatches, missing resets, blocking vs non-blocking). | ✅ Shipped |
-| `mcp-openroad` | TypeScript · MCP | Floorplan, place, and route through OpenROAD. Linux-first. | 📋 Planned |
+| [`mcp-openroad`](https://github.com/zesun33/mcp-openroad) | TypeScript · MCP | Floorplan, place, and route through OpenROAD. Linux-first. | ✅ Shipped |
 | `kernel-forge` | Go CLI + Python | Agent-friendly kernel codegen, benchmark, and roofline for Triton/CUDA. | 📋 Planned |
 | `agentic-asic` | TypeScript + Python | Orchestrates the family: RTL → review → simulate → synth → P&R. | 📋 Planned |
 | `gh-actions-for-hw` | GitHub Actions | Reusable hardware CI: lint, simulate, cocotb, yosys synth. | 📋 Planned |
