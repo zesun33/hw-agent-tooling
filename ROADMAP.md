@@ -46,14 +46,14 @@ Exit condition: a user can run the family end-to-end on a single tiny design. (C
 
 ## Phase 3 — Flagship CLI
 
-- [ ] `kernel-forge` — Go CLI + Python backend.
-  - [ ] MVP ops: `matmul`, `softmax` or `attention` microbench.
-  - [ ] JSON output schema.
-  - [ ] Deterministic benchmark mode.
-  - [ ] `--help` snapshot test.
-  - [ ] Cross-platform build (Linux, macOS, Windows).
+- [x] `kernel-forge` — Flagship developer CLI and Roofline benchmark runtime.
+  - [x] MVP ops: `matmul` (naive & 16x16 tiled), `vector_add` (memory bandwidth baseline).
+  - [x] JSON output schema (`--json`).
+  - [x] Deterministic benchmark mode (CUDA events, warmups, percentiles).
+  - [x] `--help` snapshot test.
+  - [x] Multi-GPU cluster targeting (`--device`, default: GPU 4, cluster: 4, 5, 6, 7).
 
-Exit condition: stable JSON schema and one reproducible operator path.
+Exit condition: stable JSON schema and reproducible operator paths. (Completed)
 
 ## Phase 4 — Full physical-design flow
 
