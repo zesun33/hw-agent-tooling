@@ -39,7 +39,7 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 | [`mcp-rtl-review`](https://github.com/zesun33/mcp-rtl-review) | TypeScript · MCP | Static RTL review (width mismatches, missing resets, blocking vs non-blocking). | ✅ Shipped |
 | [`mcp-openroad`](https://github.com/zesun33/mcp-openroad) | TypeScript · MCP | Floorplan, place, and route through OpenROAD. Linux-first. | ✅ Shipped |
 | [`kernel-forge`](https://github.com/zesun33/kernel-forge) | Python CLI · CUDA | Developer CLI, microbenchmarking, and Roofline model analysis for GPU kernels. | ✅ Shipped |
-| `agentic-asic` | TypeScript + Python | Orchestrates the family: RTL → review → simulate → synth → P&R. | 📋 Planned |
+| [`agentic-asic`](https://github.com/zesun33/agentic-asic) | Python CLI · MCP Client | Autonomous silicon compilation orchestrator: RTL → review → simulate → synth → P&R. | ✅ Shipped |
 | `gh-actions-for-hw` | GitHub Actions | Reusable hardware CI: lint, simulate, cocotb, yosys synth. | 📋 Planned |
 
 Legend: 🚧 Building · 📋 Planned · ✅ Shipped · ⛔ Blocked
