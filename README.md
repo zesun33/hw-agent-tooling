@@ -76,7 +76,7 @@ How the entire stack works together in closed-loop design:
 
 #### 1. Static Audit via `hw-agent-skills`
 
-Before compiling, the agent applies the [`rtl-reviewer`](../hw-agent-skills/skills/rtl-reviewer/SKILL.md) skill to detect common synthesis hazards:
+Before compiling, the agent applies the [`rtl-reviewer`](https://github.com/zesun33/hw-agent-skills/blob/main/skills/rtl-reviewer/SKILL.md) skill to detect common synthesis hazards:
 
 ```text
 ✔ Checked: All sequential assignments use non-blocking '<='
