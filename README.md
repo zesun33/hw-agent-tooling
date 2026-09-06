@@ -4,6 +4,7 @@
 > I build MCP servers, agent skills, and CLIs that turn AI coding agents into capable hardware and ML-systems engineers.
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
+[![CI](https://github.com/zesun33/hw-agent-tooling/actions/workflows/verify.yml/badge.svg)](https://github.com/zesun33/hw-agent-tooling/actions/workflows/verify.yml)
 [![Standard: Strict](https://img.shields.io/badge/engineering%20standard-strict-blueviolet)](#engineering-standard)
 [![Platforms: Linux-first](https://img.shields.io/badge/platforms-linux--first-lightgrey)](#verified-on)
 [![Made by zesun33](https://img.shields.io/badge/maintained%20by-zesun33-0a0a0a)](https://github.com/zesun33)
@@ -188,14 +189,14 @@ CI for this landing page runs on `ubuntu-latest`. Container tools are verified o
 | `hw-agent-tooling` | ✅ (CI) | — | — | n/a |
 | `eda-docker-images` | ✅ (local smokes) | —¹ | —¹ | n/a |
 | `eda-devcontainer` | ✅ (local smokes) | —¹ | —¹ | n/a |
-| `mcp-verilog` | 📋 | 📋 | 📋 | 📋 |
-| `hw-agent-skills` | 📋 | 📋 | 📋 | 📋 |
-| `mcp-cocotb` | 📋 | 📋 | 📋 | 📋 |
-| `mcp-yosys` | 📋 | 📋 | 📋 | 📋 |
-| `mcp-rtl-review` | 📋 | 📋 | 📋 | 📋 |
-| `mcp-openroad` | 📋 | ⛔ | ⛔ | 📋 |
-| `kernel-forge` | 📋 | 📋 | 📋 | 📋 |
-| `agentic-asic` | 📋 | ⛔ | ⛔ | 📋 |
+| `mcp-verilog` | ✅ (CI) | 📋 | 📋 | ✅ |
+| `hw-agent-skills` | ✅ (CI) | 📋 | 📋 | ✅ |
+| `mcp-cocotb` | ✅ (CI) | 📋 | 📋 | ✅ |
+| `mcp-yosys` | ✅ (CI) | 📋 | 📋 | ✅ |
+| `mcp-rtl-review` | ✅ (CI) | 📋 | 📋 | ✅ |
+| `mcp-openroad` | ✅ (CI) | ⛔ | ⛔ | ✅ |
+| `kernel-forge` | ✅ (CI) | 📋 | 📋 | ✅ |
+| `agentic-asic` | ✅ (CI) | ⛔ | ⛔ | ✅ |
 | `gh-actions-for-hw` | 📋 | 📋 | 📋 | n/a |
 
 ¹ Container images may run on macOS/Windows hosts; not part of current CI.
