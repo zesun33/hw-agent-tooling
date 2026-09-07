@@ -15,7 +15,9 @@ All notable changes to this repo are documented here. The format follows [Keep a
 
 ### Changed
 
-- Aligned status tables with reality: DevOps foundation (`eda-docker-images`, `eda-devcontainer`) marked shipped locally; agent MCP/skills repos marked Planned (not Building) until scaffolded.
+- Landing-page status: `gh-actions-for-hw` marked shipped; GHCR is the public image source (Docker Hub no longer implied).
+- Skill matrix and “how to use” copy match the eight shipped EDA MCP servers plus Sky130 scale signoff.
+- `ROADMAP.md` Phase 4c: Sky130 PDN-before-place, CTS buffers, `regfile32x32` LVS match.
 - Softened landing-page claims (Verified On Linux-first; Skill Matrix reflects shipped evidence; planned repos are not linked until they exist).
 - Lychee no longer accepts HTTP 404.
 

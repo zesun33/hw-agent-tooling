@@ -31,20 +31,20 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 
 | Repo | Stack | What it does | Status |
 |---|---|---|---|
-| [`eda-docker-images`](https://github.com/zesun33/eda-docker-images) | Docker · Podman | Shared Verilog / SPICE / FPGA / ASIC images (Hub pending). | ✅ Shipped |
+| [`eda-docker-images`](https://github.com/zesun33/eda-docker-images) | Docker · Podman | Shared Verilog / SPICE / FPGA / ASIC images on public GHCR (`ghcr.io/zesun33/...`). | ✅ Shipped |
 | [`eda-devcontainer`](https://github.com/zesun33/eda-devcontainer) | Dev Containers | VS Code / Cursor profiles on top of those images. | ✅ Shipped |
 | [`mcp-verilog`](https://github.com/zesun33/mcp-verilog) | TypeScript · MCP | Lint, compile, simulate, VCD summaries, Verilator coverage, testbench generation. | ✅ Shipped (v0.2.0) |
 | [`hw-agent-skills`](https://github.com/zesun33/hw-agent-skills) | Markdown · Skills | 8 portable skills (rtl-reviewer, synthesis-triage, kernel-roofline, asic-flow-operator, formal-operator, signoff-operator, fpga-operator). | ✅ Shipped |
 | [`mcp-cocotb`](https://github.com/zesun33/mcp-cocotb) | TypeScript · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | ✅ Shipped |
 | [`mcp-yosys`](https://github.com/zesun33/mcp-yosys) | TypeScript · MCP | Synthesize RTL, return cell count, hierarchy, and warnings as structured JSON. | ✅ Shipped |
 | [`mcp-rtl-review`](https://github.com/zesun33/mcp-rtl-review) | TypeScript · MCP | Static RTL review (width mismatches, missing resets, blocking vs non-blocking). | ✅ Shipped |
-| [`mcp-openroad`](https://github.com/zesun33/mcp-openroad) | TypeScript · MCP | Floorplan, place, and route through OpenROAD. Linux-first. | ✅ Shipped |
+| [`mcp-openroad`](https://github.com/zesun33/mcp-openroad) | TypeScript · MCP | Floorplan, place, CTS, PDN, route, STA (Nangate45 + Sky130). | ✅ Shipped (v0.2.3) |
 | [`mcp-gds`](https://github.com/zesun33/mcp-gds) | TypeScript · MCP | GDSII stream-out, KLayout DRC smoke, Netgen LVS, Magic extraction. | ✅ Shipped |
 | [`mcp-formal`](https://github.com/zesun33/mcp-formal) | TypeScript · MCP | SymbiYosys BMC/prove (smtbmc+z3) with honest 5-state verdicts. | ✅ Shipped |
 | [`mcp-fpga`](https://github.com/zesun33/mcp-fpga) | TypeScript · MCP | iCE40/ECP5 synth, nextpnr P&R, bitstream packing, board presets. | ✅ Shipped |
 | [`kernel-forge`](https://github.com/zesun33/kernel-forge) | Python CLI · CUDA | Developer CLI, microbenchmarking, and Roofline model analysis for GPU kernels. | ✅ Shipped |
-| [`agentic-asic`](https://github.com/zesun33/agentic-asic) | Python CLI · MCP Client | Autonomous silicon compilation orchestrator: RTL → review → simulate → formal → synth → P&R → GDS signoff, plus an FPGA track. | ✅ Shipped |
-| `gh-actions-for-hw` | GitHub Actions | Reusable hardware CI: lint, simulate, cocotb, yosys synth. | 📋 Planned |
+| [`agentic-asic`](https://github.com/zesun33/agentic-asic) | Python CLI · MCP Client | Autonomous silicon compilation: RTL → review → simulate → formal → synth → P&R → GDS/LVS signoff, plus an FPGA track. Sky130 scale vehicle LVS-matched. | ✅ Shipped (v0.2.1) |
+| [`gh-actions-for-hw`](https://github.com/zesun33/gh-actions-for-hw) | GitHub Actions | Reusable hardware CI composites on GHCR EDA images (lint, sim, cocotb, yosys, OpenROAD, ngspice). | ✅ Shipped |
 
 Legend: 🚧 Building · 📋 Planned · ✅ Shipped · ⛔ Blocked
 
@@ -65,7 +65,7 @@ How the entire stack works together in closed-loop design:
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ 2. PROTOCOL BRIDGE (mcp-verilog)                                            │
 │    Agent calls verilog_simulate or verilog_lint over stdio JSON-RPC.        │
-│    Replaces 5,000 lines of noisy terminal output with < 100 tokens of JSON. │
+│    Replaces 5,000 lines of noisy terminal output with `< 100 tokens` of JSON. │
 └──────────────────────────────────────┬──────────────────────────────────────┘
                                        │ dispatches command with timeout guard
                                        ▼
@@ -88,7 +88,7 @@ Before compiling, the agent applies the [`rtl-reviewer`](https://github.com/zesu
 ✔ Checked: Active-low asynchronous reset (rst_n) cleanly decoupled from clock
 ```
 
-#### 2. Dispatched via `mcp-verilog` (< 100 Tokens)
+#### 2. Dispatched via `mcp-verilog` (`< 100` Tokens)
 
 The agent calls `verilog_simulate` to execute the design against its self-checking testbench:
 
@@ -179,13 +179,13 @@ Google Scholar: [j-zfUj8AAAAJ](https://scholar.google.com/citations?user=j-zfUj8
 | Existing systems depth | `cuda-gemm-optimization`, `cuda-memory-benchmark`, `parallel-computing-lab` |
 | ML systems awareness | `triton-flash-attention-lite`, research (CIM / RMAAT) |
 | Research depth | ICLR 2026, IEEE TCDS, Matter (Cell Press) |
-| MCP / agent tooling (planned) | `mcp-verilog`, `hw-agent-skills`, `agentic-asic` (see roadmap) |
+| MCP / agent tooling (shipped) | `mcp-verilog`, `hw-agent-skills`, `agentic-asic`, eight EDA MCP servers |
 
 ---
 
 ## Verified On
 
-CI for this landing page runs on `ubuntu-latest`. Container tools are verified on Linux hosts (Docker/Podman). macOS/Windows are expected via containers once Hub images ship — not claimed as CI-verified yet.
+CI for this landing page runs on `ubuntu-latest`. Container tools are verified on Linux hosts (Docker/Podman). macOS/Windows can pull the same public GHCR images — not claimed as CI-verified yet.
 
 | Repo | Linux | macOS | Windows | Agents verified |
 |---|---|---|---|---|
@@ -198,9 +198,12 @@ CI for this landing page runs on `ubuntu-latest`. Container tools are verified o
 | `mcp-yosys` | ✅ (CI) | 📋 | 📋 | ✅ |
 | `mcp-rtl-review` | ✅ (CI) | 📋 | 📋 | ✅ |
 | `mcp-openroad` | ✅ (CI) | ⛔ | ⛔ | ✅ |
+| `mcp-gds` | ✅ (CI) | ⛔ | ⛔ | ✅ |
+| `mcp-formal` | ✅ (CI) | 📋 | 📋 | ✅ |
+| `mcp-fpga` | ✅ (CI) | 📋 | 📋 | ✅ |
 | `kernel-forge` | ✅ (CI) | 📋 | 📋 | ✅ |
 | `agentic-asic` | ✅ (CI) | ⛔ | ⛔ | ✅ |
-| `gh-actions-for-hw` | 📋 | 📋 | 📋 | n/a |
+| `gh-actions-for-hw` | ✅ (CI) | 📋 | 📋 | n/a |
 
 ¹ Container images may run on macOS/Windows hosts; not part of current CI.
 
@@ -210,9 +213,9 @@ CI for this landing page runs on `ubuntu-latest`. Container tools are verified o
 
 ## How to use this portfolio
 
-- **Recruiters / hiring managers:** Start with the [Skill Matrix](#skill-matrix); the end-to-end demo will live in `agentic-asic` once shipped.
-- **Hardware engineers:** Use `eda-docker-images` / `eda-devcontainer` today; `mcp-verilog` is next for lint / simulate on your RTL.
-- **Agent builders:** `hw-agent-skills` plus the MCP family are the intended install path once Phase 1 lands.
+- **Recruiters / hiring managers:** Start with the [Skill Matrix](#skill-matrix); the end-to-end demo lives in `agentic-asic` (`asic demo`, Sky130 `regfile32x32`).
+- **Hardware engineers:** Use `eda-docker-images` / `eda-devcontainer` today; pull `ghcr.io/zesun33/{verilog,asic,fpga,spice}`.
+- **Agent builders:** `hw-agent-skills` plus the eight EDA MCP servers are the install path.
 - **Researchers:** See the [Research](#research) section for the papers behind the design choices.
 
 ---

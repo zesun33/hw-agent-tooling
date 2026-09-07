@@ -67,7 +67,7 @@ The agent runs `rtl_review` on the draft.
 
 The agent runs `verilog_simulate` on `clean_fifo_ctrl.v` alongside `src/tb_fifo_ctrl.v`.
 
-- **Simulator**: Icarus Verilog inside isolated container `localhost/zesun33/verilog`.
+- **Simulator**: Icarus Verilog inside isolated container `ghcr.io/zesun33/verilog` (or a local `localhost/zesun33/verilog` build).
 - **Assertion Result**: `ALL FIFO TESTS PASSED` (`$finish called at 45000 ps`).
 
 ### Stage 4: Latch Triage & Gate-Level Synthesis ([`mcp-yosys`](https://github.com/zesun33/mcp-yosys))

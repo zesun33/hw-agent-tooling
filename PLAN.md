@@ -1,5 +1,7 @@
 # Execution Plan
 
+> **Snapshot (2026-06).** This file is the original build sequence. Current status lives in [`README.md`](./README.md) and [`ROADMAP.md`](./ROADMAP.md) — the MCP family, `gh-actions-for-hw`, and GHCR images have since shipped.
+
 This document tracks the build plan for the **Hardware Agent Tooling** portfolio family. It is updated after each repo is built and verified.
 
 ---

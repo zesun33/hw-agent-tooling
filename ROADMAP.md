@@ -82,6 +82,14 @@ Exit condition: a single agent run goes from an RTL file to a structured report 
 
 Exit condition: `asic demo` produces real DEF+GDS artifacts with a clean DRC smoke; `asic fpga` produces a programmed-track bitstream plan. (Completed)
 
+## Phase 4c — Sky130 scale loop (2026-09-07)
+
+- [x] `mcp-openroad` v0.2.3: Sky130 PDN **before place**, CTS `clkbuf_16/8/4`, routing layers / wire RC, fail on 0 signal wires, `timedOut`.
+- [x] `agentic-asic` v0.2.1: SDC period rewrite per heal, 0.5 ns timing floor, 90 min Sky130 P&R timeout, `regfile32x32` fixture.
+- [x] Live Sky130 full-loop on `regfile32x32`: 4094 cells, WNS 0.00 @ 10.05 ns, 4216/4216 nets routed, Magic extract + Netgen **LVS match**.
+
+Exit condition: a flop-scale Sky130 design closes timing and LVS through the orchestrator. (Completed)
+
 ## Phase 5 — Optional research track
 
 - [ ] `astromorph` — RMAAT-style memory compression (deferred until needed).
@@ -148,13 +156,12 @@ Exit condition: a circuit designer can ask "run transient analysis on this netli
 
 ## Phase 11 — DevOps / Infrastructure for Hardware ★★★
 
-Zero-setup, one command to a working hardware development environment. No reusable EDA infrastructure exists on Docker Hub or GitHub Actions today.
+Zero-setup, one command to a working hardware development environment.
 
-- [x] `eda-docker-images` — Docker images for Verilog (iverilog 12.0, verilator 5.020, verible, sv2v, svlint), SPICE (ngspice 42), FPGA (yosys 0.51, icestorm 1.1, nextpnr-ice40/ecp5, prjoxide, opensta 2.5, openroad 2.0, verible, sv2v, svlint), ASIC (yosys 0.51, opensta 2.5, openroad 2.0, verible, sv2v, svlint). Built and smoke-tested with rootless podman.
+- [x] `eda-docker-images` — Docker images for Verilog (iverilog 12.0, verilator 5.020, verible, sv2v, svlint), SPICE (ngspice 42), FPGA/ASIC (yosys **0.38**, icestorm, nextpnr-ice40/ecp5, prjoxide, opensta 2.5, openroad 2.0). Built and smoke-tested with rootless podman. Public on GHCR (`ghcr.io/zesun33/{verilog,asic,fpga,spice}`).
 - [x] `eda-devcontainer` — VS Code Dev Containers with every open-source EDA tool pre-installed (Verilog suite, SPICE suite, FPGA suite). `git clone` → `code .` → everything works.
 - [x] `gh-actions-for-hw` — Reusable GitHub Actions: `verilog-lint`, `verilog-simulate`, `yosys-synthesize`, `openroad-pnr`, `cocotb-test`, `spice-simulate`. Like `actions/setup-python` for hardware. (Shipped v0.1.0, Sep 2026; self-tested CI green.)
 - [ ] `hw-agent-scaffold` — `npx create-hw-agent` generates a complete AI-powered hardware project with MCP servers, skills, Makefile, and starter RTL.
-- [ ] `eda-docker-images` — Pre-built Docker images on Docker Hub: `zesun33/verilog`, `zesun33/spice`, `zesun33/fpga`. Shared foundation for all other tools.
 
 Exit condition: a hardware engineer can open a fresh laptop, run one command, and have a working Verilog development environment with AI agent integration.
 
