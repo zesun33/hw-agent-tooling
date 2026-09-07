@@ -152,7 +152,7 @@ Zero-setup, one command to a working hardware development environment. No reusab
 
 - [x] `eda-docker-images` — Docker images for Verilog (iverilog 12.0, verilator 5.020, verible, sv2v, svlint), SPICE (ngspice 42), FPGA (yosys 0.51, icestorm 1.1, nextpnr-ice40/ecp5, prjoxide, opensta 2.5, openroad 2.0, verible, sv2v, svlint), ASIC (yosys 0.51, opensta 2.5, openroad 2.0, verible, sv2v, svlint). Built and smoke-tested with rootless podman.
 - [x] `eda-devcontainer` — VS Code Dev Containers with every open-source EDA tool pre-installed (Verilog suite, SPICE suite, FPGA suite). `git clone` → `code .` → everything works.
-- [ ] `gh-actions-for-hw` — Reusable GitHub Actions: `verilog-lint`, `verilog-simulate`, `yosys-synthesize`, `openroad-pnr`, `cocotb-test`, `spice-simulate`. Like `actions/setup-python` for hardware.
+- [x] `gh-actions-for-hw` — Reusable GitHub Actions: `verilog-lint`, `verilog-simulate`, `yosys-synthesize`, `openroad-pnr`, `cocotb-test`, `spice-simulate`. Like `actions/setup-python` for hardware. (Shipped v0.1.0, Sep 2026; self-tested CI green.)
 - [ ] `hw-agent-scaffold` — `npx create-hw-agent` generates a complete AI-powered hardware project with MCP servers, skills, Makefile, and starter RTL.
 - [ ] `eda-docker-images` — Pre-built Docker images on Docker Hub: `zesun33/verilog`, `zesun33/spice`, `zesun33/fpga`. Shared foundation for all other tools.
 
