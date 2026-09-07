@@ -39,3 +39,10 @@ coverage/
 # OS-generated
 *.tmp
 *.bak
+
+# Agent memory / local progress (never commit)
+MEMORY.md
+MEMORY.local.md
+.memory/
+*.memory.md
+*.local.md

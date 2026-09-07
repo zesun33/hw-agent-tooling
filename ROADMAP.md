@@ -44,6 +44,14 @@ Exit condition: a hardware engineer can install `mcp-verilog` and at least one `
 
 Exit condition: a user can run the family end-to-end on a single tiny design. (Completed)
 
+## Phase 2b — Review/synth/sim depth (2026-09 wave)
+
+- [x] `mcp-verilog` v0.2.0: VCD summaries, Verilator line coverage, testbench generation.
+- [x] `mcp-rtl-review` v0.2.0: 12 rules, reset audit, SVA scaffolding.
+- [x] `mcp-yosys` v0.2.0: xilinx/intel targets, gate-level equivalence, area reporting.
+- [x] `mcp-cocotb` v0.2.0: real waveform dumps, Verilator readiness preflight.
+- [x] `hw-agent-skills` 5→8 with formal/signoff/fpga operators.
+
 ## Phase 3 — Flagship CLI
 
 - [x] `kernel-forge` — Flagship developer CLI and Roofline benchmark runtime.
@@ -62,6 +70,17 @@ Exit condition: stable JSON schema and reproducible operator paths. (Completed)
 - [x] One deterministic demo flow with golden transcripts.
 
 Exit condition: a single agent run goes from an RTL file to a structured report that includes review, simulation, synthesis, and (optionally) P&R results. (Completed)
+
+## Phase 4b — Signoff, formal, and FPGA tracks (2026-09 wave)
+
+- [x] `mcp-openroad` v0.2.0: CTS, detailed route, multi-corner STA, power, Tcl eval.
+- [x] `mcp-gds` v0.1.0: GDS stream-out, KLayout DRC, Netgen LVS, Magic extraction.
+- [x] `mcp-formal` v0.1.0: SymbiYosys BMC/prove with counterexample triage.
+- [x] `mcp-fpga` v0.1.0: iCE40/ECP5 synth, P&R, bitstreams, board presets.
+- [x] `agentic-asic` v0.2.0: 6-stage pipeline (formal + GDS signoff) plus a standalone FPGA track; fixed vacuous-P&R failure modes (netlist compatibility, DEF-existence gates, liberty-mapped targets).
+- [x] `eda-docker-images`: KLayout/Magic/Netgen/SBY/z3-5.1.0 in ASIC image; g++ in Verilog image; ecppack in FPGA image.
+
+Exit condition: `asic demo` produces real DEF+GDS artifacts with a clean DRC smoke; `asic fpga` produces a programmed-track bitstream plan. (Completed)
 
 ## Phase 5 — Optional research track
 

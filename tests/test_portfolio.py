@@ -72,6 +72,9 @@ class ReadmeStructure(unittest.TestCase):
             "mcp-yosys",
             "mcp-rtl-review",
             "mcp-openroad",
+            "mcp-gds",
+            "mcp-formal",
+            "mcp-fpga",
             "kernel-forge",
             "agentic-asic",
             # supporting / existing

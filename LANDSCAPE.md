@@ -56,7 +56,7 @@ Existing MCP servers for HDL-level work:
 | vivado-mcp-agent | `wangyuxin0707/vivado-mcp-agent` | 2 | Early (May 2026) | Windows-first, Vivado 2025.2 |
 | quartus-91-mcp | `ethanrxla/quartus-91-mcp` | 0 | Minimal (Apr 2026) | Altera Quartus II 9.1 SP2 |
 
-**Our play:** `mcp-fpga` could target open-source Yosys + nextpnr for generic FPGA synthesis, then add optional Vivado/Quartus adapters.
+**Our play:** 🟢 **`mcp-fpga` — shipped (v0.1.0, Sep 2026).** Open-source Yosys + nextpnr for iCE40/ECP5 synthesis, P&R, bitstreams, and board presets. Vivado/Quartus adapters remain future work.
 
 ---
 
@@ -78,6 +78,8 @@ Existing MCP servers for HDL-level work:
 
 **Our play:** Official project exists. Either collaborate with upstream or build a complementary tool that integrates with the family (agentic-asic calls OpenROAD-MCP as a sub-flow).
 
+**Shipped alongside (Sep 2026):** 🟢 **`mcp-gds` v0.1.0** — GDSII stream-out, KLayout batch DRC smoke decks, Netgen SPICE-vs-SPICE LVS with property-error detection, and Magic batch extraction. No direct MCP competitor found in this survey (closest is the stale MCP4EDA paper repo wrapping KLayout for viewing only).
+
 ---
 
 ## Verification — cocotb
@@ -96,7 +98,7 @@ No MCP server exists for cocotb (the standard Python-based verification framewor
 | frama-c-mcp-server | `lihaokun/frama-c-mcp-server` | 2 | Stable (Feb 2026) | Frama-C static analysis for C code |
 | chiasmus.cr | `dsisnero/chiasmus.cr` | 0 | Early (May 2026) | Crystal port of chiasmus |
 
-**Our play:** chiasmus dominates. Our niche could be a `mcp-formal` wrapping SymbiYosys/SVA specifically for RTL (not general-purpose like chiasmus).
+**Our play:** 🟢 **`mcp-formal` — shipped (v0.1.0, Sep 2026).** SymbiYosys smtbmc+z3 BMC/prove for RTL SVA with honest 5-state verdicts — the RTL-specific niche chiasmus does not cover.
 
 ---
 

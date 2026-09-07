@@ -33,14 +33,17 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 |---|---|---|---|
 | [`eda-docker-images`](https://github.com/zesun33/eda-docker-images) | Docker · Podman | Shared Verilog / SPICE / FPGA / ASIC images (Hub pending). | ✅ Shipped |
 | [`eda-devcontainer`](https://github.com/zesun33/eda-devcontainer) | Dev Containers | VS Code / Cursor profiles on top of those images. | ✅ Shipped |
-| [`mcp-verilog`](https://github.com/zesun33/mcp-verilog) | TypeScript · MCP | Lint, compile, and simulate Verilog/SystemVerilog through iverilog/Verilator. | ✅ Shipped |
-| [`hw-agent-skills`](https://github.com/zesun33/hw-agent-skills) | Markdown · Skills | Portable skills (rtl-reviewer, synthesis-triage, kernel-roofline, asic-flow-operator). | ✅ Shipped |
+| [`mcp-verilog`](https://github.com/zesun33/mcp-verilog) | TypeScript · MCP | Lint, compile, simulate, VCD summaries, Verilator coverage, testbench generation. | ✅ Shipped (v0.2.0) |
+| [`hw-agent-skills`](https://github.com/zesun33/hw-agent-skills) | Markdown · Skills | 8 portable skills (rtl-reviewer, synthesis-triage, kernel-roofline, asic-flow-operator, formal-operator, signoff-operator, fpga-operator). | ✅ Shipped |
 | [`mcp-cocotb`](https://github.com/zesun33/mcp-cocotb) | TypeScript · MCP | Run cocotb testbenches, collect results, and surface failing assertions. | ✅ Shipped |
 | [`mcp-yosys`](https://github.com/zesun33/mcp-yosys) | TypeScript · MCP | Synthesize RTL, return cell count, hierarchy, and warnings as structured JSON. | ✅ Shipped |
 | [`mcp-rtl-review`](https://github.com/zesun33/mcp-rtl-review) | TypeScript · MCP | Static RTL review (width mismatches, missing resets, blocking vs non-blocking). | ✅ Shipped |
 | [`mcp-openroad`](https://github.com/zesun33/mcp-openroad) | TypeScript · MCP | Floorplan, place, and route through OpenROAD. Linux-first. | ✅ Shipped |
+| [`mcp-gds`](https://github.com/zesun33/mcp-gds) | TypeScript · MCP | GDSII stream-out, KLayout DRC smoke, Netgen LVS, Magic extraction. | ✅ Shipped |
+| [`mcp-formal`](https://github.com/zesun33/mcp-formal) | TypeScript · MCP | SymbiYosys BMC/prove (smtbmc+z3) with honest 5-state verdicts. | ✅ Shipped |
+| [`mcp-fpga`](https://github.com/zesun33/mcp-fpga) | TypeScript · MCP | iCE40/ECP5 synth, nextpnr P&R, bitstream packing, board presets. | ✅ Shipped |
 | [`kernel-forge`](https://github.com/zesun33/kernel-forge) | Python CLI · CUDA | Developer CLI, microbenchmarking, and Roofline model analysis for GPU kernels. | ✅ Shipped |
-| [`agentic-asic`](https://github.com/zesun33/agentic-asic) | Python CLI · MCP Client | Autonomous silicon compilation orchestrator: RTL → review → simulate → synth → P&R. | ✅ Shipped |
+| [`agentic-asic`](https://github.com/zesun33/agentic-asic) | Python CLI · MCP Client | Autonomous silicon compilation orchestrator: RTL → review → simulate → formal → synth → P&R → GDS signoff, plus an FPGA track. | ✅ Shipped |
 | `gh-actions-for-hw` | GitHub Actions | Reusable hardware CI: lint, simulate, cocotb, yosys synth. | 📋 Planned |
 
 Legend: 🚧 Building · 📋 Planned · ✅ Shipped · ⛔ Blocked
