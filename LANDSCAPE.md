@@ -316,13 +316,13 @@ The portfolio is not limited to MCP servers. These are ecosystem-level projects 
 
 ### DevOps / Infrastructure for Hardware ★★★
 
-Zero setup, one command to a working hardware development environment. **Shipped:** `eda-docker-images` (public GHCR), `eda-devcontainer`, `gh-actions-for-hw`. Remaining in this band: `hw-agent-scaffold`.
+Zero setup, one command to a working hardware development environment. **Shipped:** `eda-docker-images` (public GHCR), `eda-devcontainer`, `gh-actions-for-hw`, `hw-agent-scaffold` (`npx @zesun33/create-hw-agent`).
 
 | Project | What it does | Why it matters | Difficulty |
 |---|---|---|---|
 | **`eda-devcontainer`** | Pre-built VS Code Dev Containers with every open-source EDA tool: Verilog suite (iverilog + Verilator + cocotb + yosys + OpenROAD + GTKWave), SPICE suite (ngspice + PySpice + schemdraw), FPGA suite (yosys + nextpnr). One `git clone`, one `code .`, everything works on Linux, macOS, Windows via Docker. | Hours of manual setup saved per user. Every hardware engineer would use this. Your name on their VS Code. | Medium — **shipped** |
 | **`gh-actions-for-hw`** | Reusable GitHub Actions for hardware CI: `verilog-lint`, `verilog-simulate`, `yosys-synthesize`, `openroad-pnr`, `cocotb-test`, `spice-simulate`. Like `actions/setup-python` but for hardware workflows. | No standard hardware CI actions existed. Now the category default for this family. | Medium — **shipped** |
-| **`hw-agent-scaffold`** | `npx create-hw-agent` — scaffolds a complete AI-powered hardware project. Generates Claude Code / OpenCode / Codex config, wired MCP servers, agent skills, Makefile, and a starter RTL design. Like `create-react-app` for AI + hardware. | Solves the "how do I even start?" problem. Turns your entire portfolio into a one-command onboarding experience. | Easy |
+| **`hw-agent-scaffold`** | `npx @zesun33/create-hw-agent` — scaffolds a complete AI-powered hardware project. Generates Cursor MCP config (`npx -y @zesun33/mcp-*`), Makefile, and a starter RTL design. Like `create-react-app` for AI + hardware. | Solves the "how do I even start?" problem. Turns your entire portfolio into a one-command onboarding experience. | Easy — **shipped** |
 | **`eda-docker-images`** | Pre-built images on GHCR: `ghcr.io/zesun33/{verilog,spice,fpga,asic}:latest`. Used by `eda-devcontainer`, `gh-actions-for-hw`, and all MCP servers. | Shared foundation layer for everything else in the portfolio. Build once, use everywhere. | Easy — **shipped** |
 
 ### Interactive / Visualization

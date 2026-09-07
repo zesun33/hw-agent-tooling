@@ -75,6 +75,9 @@ class ReadmeStructure(unittest.TestCase):
             "mcp-gds",
             "mcp-formal",
             "mcp-fpga",
+            "mcp-spice",
+            "hw-agent-scaffold",
+            "create-hw-agent",
             "kernel-forge",
             "agentic-asic",
             # supporting / existing

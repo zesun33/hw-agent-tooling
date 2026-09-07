@@ -23,6 +23,21 @@
 
 This repository is the **landing page** for a family of open-source hardware-agent tools. Shipped items clear the engineering gates below; planned items are sequenced in [ROADMAP.md](./ROADMAP.md) and are not installable yet.
 
+## One-step install (`npm` vs `npx`)
+
+| | |
+| :--- | :--- |
+| **npm** | Node's package installer. Puts a package in `node_modules` or globally (`npm i -g`). |
+| **npx** | Runs a package once. No global install. `npx pkg` downloads (if needed) and executes. |
+| **One-step** | `npx @zesun33/create-hw-agent my-asic` writes a project whose `.cursor/mcp.json` starts every MCP server with `npx -y` (for example `@zesun33/mcp-verilog`). Then `make images` pulls `ghcr.io/zesun33/{verilog,asic,fpga,spice}`. |
+
+```bash
+npx @zesun33/create-hw-agent my-asic
+cd my-asic && make images && make sim
+```
+
+Until the scoped packages are on the npm registry, clone `zesun33/hw-agent-scaffold` and run `node bin/create-hw-agent.js ./my-asic`. You can `npm login` (OAuth is fine) when you are ready to `npm publish`. Do not paste tokens into chat.
+
 ---
 
 ## AI Agent Tools — the new family
@@ -41,7 +56,9 @@ These are agent-facing tools: MCP servers, agent skills, and CLIs that any moder
 | [`mcp-openroad`](https://github.com/zesun33/mcp-openroad) | TypeScript · MCP | Floorplan, place, CTS, PDN, route, STA (Nangate45 + Sky130). | ✅ Shipped (v0.2.3) |
 | [`mcp-gds`](https://github.com/zesun33/mcp-gds) | TypeScript · MCP | GDSII stream-out, KLayout DRC smoke, Netgen LVS, Magic extraction. | ✅ Shipped |
 | [`mcp-formal`](https://github.com/zesun33/mcp-formal) | TypeScript · MCP | SymbiYosys BMC/prove (smtbmc+z3) with honest 5-state verdicts. | ✅ Shipped |
-| [`mcp-fpga`](https://github.com/zesun33/mcp-fpga) | TypeScript · MCP | iCE40/ECP5 synth, nextpnr P&R, bitstream packing, board presets. | ✅ Shipped |
+| [`mcp-fpga`](https://github.com/zesun33/mcp-fpga) | TypeScript · MCP | iCE40/ECP5 synth, nextpnr P&R, bitstream packing, iceprog/openFPGALoader. | ✅ Shipped |
+| [`mcp-spice`](https://github.com/zesun33/mcp-spice) | TypeScript · MCP | ngspice batch simulate + `.meas` JSON. | ✅ Shipped |
+| [`hw-agent-scaffold`](https://github.com/zesun33/hw-agent-scaffold) | Node · npx | One-step: `npx @zesun33/create-hw-agent` scaffolds RTL + all MCP servers. | ✅ Shipped |
 | [`kernel-forge`](https://github.com/zesun33/kernel-forge) | Python CLI · CUDA | Developer CLI, microbenchmarking, and Roofline model analysis for GPU kernels. | ✅ Shipped |
 | [`agentic-asic`](https://github.com/zesun33/agentic-asic) | Python CLI · MCP Client | Autonomous silicon compilation: RTL → review → simulate → formal → synth → P&R → GDS/LVS signoff, plus an FPGA track. Sky130 scale vehicle LVS-matched. | ✅ Shipped (v0.2.1) |
 | [`gh-actions-for-hw`](https://github.com/zesun33/gh-actions-for-hw) | GitHub Actions | Reusable hardware CI composites on GHCR EDA images (lint, sim, cocotb, yosys, OpenROAD, ngspice). | ✅ Shipped |
@@ -71,7 +88,7 @@ How the entire stack works together in closed-loop design:
                                        ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ 3. ISOLATED RUNTIME (eda-docker-images & eda-devcontainer)                  │
-│    Executes iverilog 12.0 / Verilator 5.020 inside rootless Podman.         │
+│    Executes iverilog 12.0 / Verilator 5.050 inside rootless Podman.         │
 │    Zero host install, zero sudo, single-user namespace compatible.          │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -179,7 +196,7 @@ Google Scholar: [j-zfUj8AAAAJ](https://scholar.google.com/citations?user=j-zfUj8
 | Existing systems depth | `cuda-gemm-optimization`, `cuda-memory-benchmark`, `parallel-computing-lab` |
 | ML systems awareness | `triton-flash-attention-lite`, research (CIM / RMAAT) |
 | Research depth | ICLR 2026, IEEE TCDS, Matter (Cell Press) |
-| MCP / agent tooling (shipped) | `mcp-verilog`, `hw-agent-skills`, `agentic-asic`, eight EDA MCP servers |
+| MCP / agent tooling (shipped) | `mcp-verilog`, `hw-agent-skills`, `agentic-asic`, nine EDA MCP servers, `npx @zesun33/create-hw-agent` |
 
 ---
 
@@ -201,6 +218,8 @@ CI for this landing page runs on `ubuntu-latest`. Container tools are verified o
 | `mcp-gds` | ✅ (CI) | ⛔ | ⛔ | ✅ |
 | `mcp-formal` | ✅ (CI) | 📋 | 📋 | ✅ |
 | `mcp-fpga` | ✅ (CI) | 📋 | 📋 | ✅ |
+| `mcp-spice` | ✅ (CI) | 📋 | 📋 | ✅ |
+| `hw-agent-scaffold` | ✅ (CI) | 📋 | 📋 | n/a |
 | `kernel-forge` | ✅ (CI) | 📋 | 📋 | ✅ |
 | `agentic-asic` | ✅ (CI) | ⛔ | ⛔ | ✅ |
 | `gh-actions-for-hw` | ✅ (CI) | 📋 | 📋 | n/a |
@@ -215,7 +234,7 @@ CI for this landing page runs on `ubuntu-latest`. Container tools are verified o
 
 - **Recruiters / hiring managers:** Start with the [Skill Matrix](#skill-matrix); the end-to-end demo lives in `agentic-asic` (`asic demo`, Sky130 `regfile32x32`).
 - **Hardware engineers:** Use `eda-docker-images` / `eda-devcontainer` today; pull `ghcr.io/zesun33/{verilog,asic,fpga,spice}`.
-- **Agent builders:** `hw-agent-skills` plus the eight EDA MCP servers are the install path.
+- **Agent builders:** `npx @zesun33/create-hw-agent` plus `hw-agent-skills` is the install path.
 - **Researchers:** See the [Research](#research) section for the papers behind the design choices.
 
 ---

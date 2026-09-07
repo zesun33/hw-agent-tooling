@@ -158,10 +158,13 @@ Exit condition: a circuit designer can ask "run transient analysis on this netli
 
 Zero-setup, one command to a working hardware development environment.
 
-- [x] `eda-docker-images` — Docker images for Verilog (iverilog 12.0, verilator 5.020, verible, sv2v, svlint), SPICE (ngspice 42), FPGA/ASIC (yosys **0.38**, icestorm, nextpnr-ice40/ecp5, prjoxide, opensta 2.5, openroad 2.0). Built and smoke-tested with rootless podman. Public on GHCR (`ghcr.io/zesun33/{verilog,asic,fpga,spice}`).
+- [x] `eda-docker-images` — Docker images for Verilog (iverilog 12.0, verilator **5.050**, verible, sv2v, svlint), SPICE (ngspice 42), FPGA/ASIC (yosys **0.38**, icestorm, nextpnr-ice40/ecp5, prjoxide, openFPGALoader, opensta 2.5, openroad 2.0). Built and smoke-tested with rootless podman. Public on GHCR (`ghcr.io/zesun33/{verilog,asic,fpga,spice}`).
 - [x] `eda-devcontainer` — VS Code Dev Containers with every open-source EDA tool pre-installed (Verilog suite, SPICE suite, FPGA suite). `git clone` → `code .` → everything works.
 - [x] `gh-actions-for-hw` — Reusable GitHub Actions: `verilog-lint`, `verilog-simulate`, `yosys-synthesize`, `openroad-pnr`, `cocotb-test`, `spice-simulate`. Like `actions/setup-python` for hardware. (Shipped v0.1.0, Sep 2026; self-tested CI green.)
-- [ ] `hw-agent-scaffold` — `npx create-hw-agent` generates a complete AI-powered hardware project with MCP servers, skills, Makefile, and starter RTL.
+- [x] `hw-agent-scaffold` — `npx @zesun33/create-hw-agent` generates a complete AI-powered hardware project with MCP servers, skills, Makefile, and starter RTL.
+- [x] `mcp-spice` — ngspice batch MCP (`spice_run`, `spice_toolchain_info`).
+
+Future (not this wave): OpenROAD IR-drop/PSM (needs an OpenROAD bump past 2.0); GF180 P&R/signoff.
 
 Exit condition: a hardware engineer can open a fresh laptop, run one command, and have a working Verilog development environment with AI agent integration.
 

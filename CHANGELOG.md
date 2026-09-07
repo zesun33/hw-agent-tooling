@@ -15,7 +15,7 @@ All notable changes to this repo are documented here. The format follows [Keep a
 
 ### Changed
 
-- Landing-page status: `gh-actions-for-hw` marked shipped; GHCR is the public image source (Docker Hub no longer implied).
+- Landing page one-step: `npx @zesun33/create-hw-agent`. `mcp-spice` and `hw-agent-scaffold` marked shipped. Verilog image Verilator 5.050; FPGA image openFPGALoader.
 - Skill matrix and “how to use” copy match the eight shipped EDA MCP servers plus Sky130 scale signoff.
 - `ROADMAP.md` Phase 4c: Sky130 PDN-before-place, CTS buffers, `regfile32x32` LVS match.
 - Softened landing-page claims (Verified On Linux-first; Skill Matrix reflects shipped evidence; planned repos are not linked until they exist).
