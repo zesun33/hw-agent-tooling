@@ -36,7 +36,7 @@ npx @zesun33/create-hw-agent my-asic
 cd my-asic && make images && make sim
 ```
 
-Until the scoped packages are on the npm registry, clone `zesun33/hw-agent-scaffold` and run `node bin/create-hw-agent.js ./my-asic`. You can `npm login` (OAuth is fine) when you are ready to `npm publish`. Do not paste tokens into chat.
+Packages are public on npm. MCP servers default to `ghcr.io/zesun33/{verilog,asic,fpga,spice}`.
 
 ---
 
