@@ -1,5 +1,26 @@
 # Md Zesun Ahmed Mia — AI Agent Tooling for Hardware + ML Systems
 
+<!-- BEGIN GENERATED PROJECT GUIDE -->
+
+## Purpose and first steps
+
+Find and choose the hardware-agent tools in this portfolio.
+
+**Who it is for:** Engineers choosing hardware-agent tools and readers evaluating the portfolio.
+
+**First task:** Follow the small FIFO walkthrough to see RTL review, simulation, and synthesis together.
+
+**What to expect:** A map of the tool family, a recorded example, and links to individual tools.
+
+**Current scope:** A documentation hub with example transcripts; each tool is installed and maintained in its own repository.
+
+**Start here:** [FIFO walkthrough](examples/end-to-end-demo/README.md).
+
+**Related projects:** [hw-agent-scaffold](https://github.com/zesun33/hw-agent-scaffold), [agentic-asic](https://github.com/zesun33/agentic-asic), [kernel-forge](https://github.com/zesun33/kernel-forge).
+
+[Choose another project](https://github.com/zesun33/personal-projects/blob/main/GETTING_STARTED.md).
+<!-- END GENERATED PROJECT GUIDE -->
+
 > PhD candidate in Electrical Engineering at Penn State · Ex-Micron ML engineer intern · Ex-Intel graduate technical intern.
 > I build MCP servers, agent skills, and CLIs that turn AI coding agents into capable hardware and ML-systems engineers.
 
@@ -161,15 +182,15 @@ Code that demonstrates the underlying competence the agent tools sit on.
 
 ## Existing Systems Work
 
-Earlier self-study repos demonstrating systems-level fluency. Kept as supporting evidence, not the main act.
+The systems projects include measured implementations, unfinished exercises, and roadmap stubs. Choose based on the current artifacts below.
 
 | Repo | Topic |
 |---|---|
-| [`cuda-gemm-optimization`](https://github.com/zesun33/cuda-gemm-optimization) | Naive → tiled → Tensor Core GEMM. |
-| [`cuda-memory-benchmark`](https://github.com/zesun33/cuda-memory-benchmark) | Global/shared memory bandwidth, roofline, bank conflicts. |
-| [`parallel-computing-lab`](https://github.com/zesun33/parallel-computing-lab) | OpenMP patterns and a parallel GEMM. |
-| [`resnet-tensorrt-bench`](https://github.com/zesun33/resnet-tensorrt-bench) | FP32 / FP16 / INT8 inference through TensorRT. |
-| [`triton-flash-attention-lite`](https://github.com/zesun33/triton-flash-attention-lite) | FlashAttention in Triton, block-level memory management. |
+| [`cuda-gemm-optimization`](https://github.com/zesun33/cuda-gemm-optimization) | Checked naive/tiled/strict FP32 cuBLAS comparison with recorded measurements. |
+| [`cuda-memory-benchmark`](https://github.com/zesun33/cuda-memory-benchmark) | Memory notes and a TODO bandwidth exercise; further access-pattern cases are planned. |
+| [`parallel-computing-lab`](https://github.com/zesun33/parallel-computing-lab) | Two OpenMP exercises; parallel sections must be uncommented. MPI/GEMM are planned. |
+| [`resnet-tensorrt-bench`](https://github.com/zesun33/resnet-tensorrt-bench) | Roadmap for a future FP32/FP16/INT8 inference study; no implementation yet. |
+| [`triton-flash-attention-lite`](https://github.com/zesun33/triton-flash-attention-lite) | Roadmap for tiled attention and online softmax; no kernel yet. |
 
 ---
 

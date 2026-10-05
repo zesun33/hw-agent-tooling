@@ -62,6 +62,7 @@ class ReadmeStructure(unittest.TestCase):
         # The README references a known set of family repos. This test fails
         # if a brand-new repo is added without being listed in the README.
         known = {
+            "personal-projects",  # parent catalog and getting-started guide
             "hw-agent-tooling",
             "eda-docker-images",
             "eda-devcontainer",
